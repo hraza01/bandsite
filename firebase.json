@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "target": "band-site",
+    "public": "src",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
