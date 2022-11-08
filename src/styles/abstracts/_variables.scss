@@ -1,0 +1,62 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+
+/// Regular font family
+/// @type List
+$text-font-stack: 'Avenir Next', 'Arial', sans-serif !default;
+
+/// Code (monospace) font family
+/// @type List
+$code-font-stack: 'Courier New', 'Monaco', monospace !default;
+
+
+/// Brand colors
+/// @type Color
+$colors: (
+    'primary': (
+        'base': #323232,
+        'neutral': #AFAFAF,
+        'alternate': #FFFFFF
+    ),
+    'secondary': (
+        'base': #000000,
+        'neutral': #E1E1E1,
+        'alternate': #FAFAFA
+    )
+) !default;
+
+
+/// Container's maximum width
+/// @type Length
+$container-width: (
+    'small': calc(100% - 10vw),
+    'medium': calc(100% - 12.5vw),
+    'large': calc(100% - 15vw)
+) !default;
+
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+    'medium': (min-width: 35em),
+    'large': (min-width: 75em),
+    //'huge': (min-width: 112.5em)
+) !default;
+
+
+/// Font weights map
+$font-weights: (
+    'regular': 400,
+    'semi-bold': 600,
+    'bold': 700
+) !default;
+
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'https://cdn.example.com/assets/';
+$base-url: '../../assets/' !default;

@@ -1,0 +1,106 @@
+/**
+ * Basic typography style for copy text
+ */
+@use "../abstracts" as a;
+
+
+body {
+    font: normal 1.3rem / 1.8rem a.$text-font-stack;
+
+    @include a.respond-to('medium') {
+        font: normal 1.4rem / 2.2rem a.$text-font-stack;
+    }
+
+    @include a.respond-to('large') {
+        font: normal 1.4rem / 2.2rem a.$text-font-stack;
+    }
+}
+
+h1, h2 {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    font-weight: map-get(a.$font-weights, 'bold');
+}
+
+h1 {
+    @include a.respond-to('medium') {
+        font-size: 6rem;
+        line-height: 6.8rem;
+        font-weight: map-get(a.$font-weights, 'bold');
+    }
+
+    @include a.respond-to('large') {
+        font-size: 6rem;
+        line-height: 6.8rem;
+        font-weight: map-get(a.$font-weights, 'bold');
+    }
+}
+
+h2 {
+    @include a.respond-to('medium') {
+        font-size: 6rem;
+        line-height: 6.8rem;
+        font-weight: map-get(a.$font-weights, 'bold');
+    }
+
+    @include a.respond-to('large') {
+        font-size: 3.6rem;
+        line-height: 4.4rem;
+        font-weight: map-get(a.$font-weights, 'bold');
+    }
+}
+
+h3 {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    font-weight: map-get(a.$font-weights, 'semi-bold');
+
+    @include a.respond-to('medium') {
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+        font-weight: map-get(a.$font-weights, 'semi-bold');
+    }
+
+    @include a.respond-to('large') {
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+        font-weight: map-get(a.$font-weights, 'semi-bold');
+    }
+}
+
+footer > p {
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+    font-weight: map-get(a.$font-weights, 'regular');
+
+    @include a.respond-to('medium') {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        font-weight: map-get(a.$font-weights, 'regular');
+    }
+
+    @include a.respond-to('large') {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        font-weight: map-get(a.$font-weights, 'regular');
+    }
+}
+
+a, button {
+    font-size: 1rem;
+    line-height: 2rem;
+    font-weight: map-get(a.$font-weights, 'bold');
+
+    @include a.respond-to('medium') {
+        font-size: 1.2rem;
+        line-height: 2rem;
+        font-weight: map-get(a.$font-weights, 'bold');
+    }
+
+    @include a.respond-to('large') {
+        font-size: 1.2rem;
+        line-height: 2rem;
+        font-weight: map-get(a.$font-weights, 'bold');
+    }
+}
+

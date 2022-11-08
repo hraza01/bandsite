@@ -1,0 +1,44 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+@use "../abstracts" as a;
+@use "../base";
+@use "../layout";
+@use "../components";
+
+
+.cover {
+    //noinspection CssUnknownTarget
+    background-image: a.image('hero-bio.jpg');
+    background-size: cover;
+    background-position: center;
+
+    &__heading {
+        color: a.color('primary', 'alternate');
+    }
+
+    &__wrapper {
+        max-width: map-get(a.$container-width, 'small');
+        height: 32rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 0 auto;
+
+        @include a.respond-to('medium') {
+            max-width: map-get(a.$container-width, 'medium');
+        }
+
+        @include a.respond-to('large') {
+            max-width: map-get(a.$container-width, 'large');
+        }
+    }
+}
+
+.about {
+
+}
+
+.gallery {
+
+}
