@@ -58,3 +58,12 @@
          + 'Please make sure it is defined in `$breakpoints` map.';
     }
 }
+
+/// Make an element a flexbox with centered sub-elements
+/// @param {String} $direction - column/row
+@mixin flex-center($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}

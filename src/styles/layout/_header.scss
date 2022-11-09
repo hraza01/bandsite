@@ -1,12 +1,41 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
+@use "../abstracts" as a;
+@use "../base" as b;
 
 
 .header {
-
+    background-color: a.color('primary', 'base');
 }
 
 .nav {
+    @include a.flex-center(column);
+    padding-top: 1.6rem;
 
+    &__list {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 0.4rem;
+
+    }
+
+    &__item {
+        @include a.flex-center();
+        padding: 0.8rem 4.8rem;
+        width: 100%;
+        margin: 0 auto;
+
+        &--active {
+            border-bottom: 2px solid a.color('primary', 'alternate');
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        letter-spacing: 0.025rem;
+        color: a.color('primary', 'alternate');
+
+    }
 }

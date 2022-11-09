@@ -1,8 +1,46 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the footer of the site/application.
 // -----------------------------------------------------------------------------
+@use "../abstracts" as a;
+@use "../base" as b;
 
 
 .footer {
+    background-color: a.color('primary', 'base');
 
+    &__wrapper {
+        padding: 2.4rem 1.6rem 0.8rem;
+    }
+
+    &__heading,
+    &__text,
+    &__address,
+    &__copyright {
+        color: a.color('primary', 'alternate');
+        margin-bottom: 1.6rem;
+        font-style: normal;
+
+    }
+
+    &__text {
+        font-weight: map-get(a.$font-weights, 'semi-bold');
+    }
+
+    &__icon-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 2.4rem;
+        margin-bottom: 3.2rem;
+    }
+
+    &__article {
+        margin-bottom: 3.2rem;
+    }
+
+    &__logo {
+        display: block;
+        margin-top: 5.6rem;
+        padding: 1.6rem 0;
+    }
 }
