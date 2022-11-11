@@ -18,7 +18,6 @@
         display: flex;
         justify-content: space-between;
         padding-top: 0.4rem;
-
     }
 
     &__item {
@@ -37,5 +36,26 @@
         letter-spacing: 0.025rem;
         color: a.color('primary', 'alternate');
 
+    }
+
+    @include a.respond-to('medium') {
+        @include a.flex-center(row);
+        padding: 0 3.2rem;
+        gap: 5.6rem;
+
+        &__list {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            gap: 3.2rem;
+            padding-top: 0;
+        }
+
+        &__item {
+            align-items: flex-start;
+            width: fit-content;
+            padding: 1.6rem 0;
+            margin: 0;
+        }
     }
 }

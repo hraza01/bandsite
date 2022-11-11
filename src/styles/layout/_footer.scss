@@ -13,6 +13,7 @@
     }
 
     &__heading,
+    &__name,
     &__text,
     &__address,
     &__copyright {
@@ -22,7 +23,7 @@
 
     }
 
-    &__text {
+    &__name {
         font-weight: map-get(a.$font-weights, 'semi-bold');
     }
 
@@ -30,7 +31,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        gap: 2.4rem;
+        gap: 3.2rem;
         margin-bottom: 3.2rem;
     }
 
@@ -42,5 +43,53 @@
         display: block;
         margin-top: 5.6rem;
         padding: 1.6rem 0;
+    }
+
+    @include a.respond-to('medium') {
+        padding: 1.6rem;
+
+
+        &__wrapper {
+            position: relative;
+        }
+
+        &__header {
+            display: flex;
+            align-items: center;
+            gap: 2.4rem;
+            margin-bottom: 4rem;
+
+        }
+
+        &__heading {
+            margin: 0;
+        }
+
+        &__content {
+            display: flex;
+            gap: 4rem;
+        }
+
+        &__article {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 33%;
+        }
+
+        &__icon-container {
+            margin: 0;
+        }
+
+        &__logo {
+            margin-top: 0;
+            position: absolute;
+            top: 2rem;
+            right: 1.6rem;
+        }
+
+        &__copyright {
+            margin-bottom: 0;
+        }
     }
 }

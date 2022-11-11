@@ -8,7 +8,6 @@
 
 
 .cover {
-    //noinspection CssUnknownTarget
     background-image: a.image('hero-bio.jpg');
     background-size: cover;
     background-position: center;
@@ -27,18 +26,133 @@
 
         @include a.respond-to('medium') {
             max-width: map-get(a.$container-width, 'medium');
+            height: 50rem;
         }
 
         @include a.respond-to('large') {
             max-width: map-get(a.$container-width, 'large');
+            height: 50rem;
         }
     }
 }
 
 .about {
 
+    &__wrapper {
+        padding: 0 1.6rem;
+
+        @include a.respond-to('medium') {
+            padding: 3.2rem;
+        }
+    }
+
+    &__heading {
+        padding: 2.4rem 0 1.6rem;
+
+        @include a.respond-to('medium') {
+            font-size: 3.6rem;
+            line-height: 3.2rem;
+            padding-bottom: 3.2rem;
+        }
+    }
+
+    &__img-container {
+        margin-bottom: 1.6rem;
+
+        @include a.respond-to('medium') {
+            width: 85%;
+            margin: 0 auto 3.2rem;
+        }
+    }
+
+    &__img {
+        width: 100%;
+
+        @include a.respond-to('medium') {
+            height: calc(100% * 0.5625);
+        }
+    }
+
+    &__quote {
+        font-weight: map-get(a.$font-weights, 'semi-bold');
+
+        @include a.respond-to('medium') {
+            font-size: 2.4rem;
+            line-height: 3.2rem;
+            margin: 0 auto 1.6rem;
+            width: 85%;
+        }
+    }
+
+    &__author {
+        font-weight: map-get(a.$font-weights, 'semi-bold');
+        margin-bottom: 1.6rem;
+
+        @include a.respond-to('medium') {
+            margin: 0 auto 1.6rem;
+            width: 85%;
+            font-size: 1.8rem;
+        }
+
+    }
+
+    &__subheading {
+
+        @include a.respond-to('medium') {
+            margin: 3.2rem auto;
+            width: 85%;
+        }
+    }
+
+    &__description {
+
+        @include a.respond-to('medium') {
+            margin: 0 auto;
+            width: 85%;
+            display: flex;
+            gap: 3.2rem;
+        }
+    }
+
+    &__text {
+        margin-bottom: 1.6rem;
+    }
+
 }
 
 .gallery {
+
+    &__wrapper {
+        padding: 0 1.6rem;
+
+        @include a.respond-to('medium') {
+            padding: 1.6rem 3.2rem;
+        }
+    }
+
+    &__heading{
+        padding: 1.6rem 0;
+    }
+
+    &__img-container {
+        @include a.flex-center(column);
+        gap: 1.6rem;
+        margin-bottom: 1.6rem;
+
+        @include a.respond-to('medium') {
+            @include a.grid(
+                    repeat(3, 1fr),
+                    repeat(3, 1fr)
+            );
+        }
+    }
+
+    &__img {
+
+        @include a.respond-to('medium') {
+            //width: 30%;
+        }
+    }
+
 
 }

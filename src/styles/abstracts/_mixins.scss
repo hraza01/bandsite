@@ -67,3 +67,9 @@
     justify-content: center;
     align-items: center;
 }
+
+@mixin grid($column, $row) {
+    display: grid;
+    grid-template-columns: $column;
+    grid-template-rows: $row;
+}

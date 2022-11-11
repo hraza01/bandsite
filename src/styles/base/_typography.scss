@@ -19,7 +19,7 @@ body {
 h1, h2 {
     font-size: 2.4rem;
     line-height: 3.2rem;
-    font-weight: map-get(a.$font-weights, 'bold');
+    font-weight: map-get(a.$font-weights, 'semi-bold');
 }
 
 h1 {
@@ -89,18 +89,18 @@ footer > p {
 a, button {
     font-size: 1rem;
     line-height: 2rem;
-    font-weight: map-get(a.$font-weights, 'bold');
+    font-weight: map-get(a.$font-weights, 'regular');
 
     @include a.respond-to('medium') {
         font-size: 1.2rem;
         line-height: 2rem;
-        font-weight: map-get(a.$font-weights, 'bold');
+        font-weight: map-get(a.$font-weights, 'regular');
     }
 
     @include a.respond-to('large') {
         font-size: 1.2rem;
         line-height: 2rem;
-        font-weight: map-get(a.$font-weights, 'bold');
+        font-weight: map-get(a.$font-weights, 'regular');
     }
 }
 
