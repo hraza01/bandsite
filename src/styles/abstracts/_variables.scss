@@ -7,10 +7,6 @@
 /// @type List
 $text-font-stack: 'Avenir Next', 'Arial', sans-serif !default;
 
-/// Code (monospace) font family
-/// @type List
-$code-font-stack: 'Courier New', 'Monaco', monospace !default;
-
 
 /// Brand colors
 /// @type Color
@@ -31,9 +27,9 @@ $colors: (
 /// Container's maximum width
 /// @type Length
 $container-width: (
-    'small': calc(100% - 10vw),
-    'medium': calc(100% - 12.5vw),
-    'large': calc(100% - 15vw)
+    'small': calc(100% - 1.6rem),
+    'medium': calc(100% - 3.6rem),
+    'large': 126rem,
 ) !default;
 
 
@@ -41,8 +37,8 @@ $container-width: (
 /// @prop {String} keys - Keys are identifiers mapped to a given length
 /// @prop {Map} values - Values are actual breakpoints expressed in pixels
 $breakpoints: (
-    'medium': (min-width: 35em),
-    'large': (min-width: 75em),
+    'medium': (min-width: 36em),
+    'large': (min-width: 80em),
     //'huge': (min-width: 112.5em)
 ) !default;
 

@@ -8,7 +8,11 @@
 
 
 .cover {
-    background-image: a.image('hero-bio.jpg');
+    background-image: linear-gradient(
+            rgba(50, 50, 50, 0.5),
+            rgba(50, 50, 50, 0.5)
+        ),
+        a.image('hero-bio.jpg');
     background-size: cover;
     background-position: center;
 
@@ -18,20 +22,22 @@
 
     &__wrapper {
         max-width: map-get(a.$container-width, 'small');
+        margin: 0 auto;
         height: 20rem;
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        margin: 0 auto;
 
         @include a.respond-to('medium') {
+            height: 40rem;
+            padding: 1.6rem;
             max-width: map-get(a.$container-width, 'medium');
-            height: 50rem;
         }
 
         @include a.respond-to('large') {
             max-width: map-get(a.$container-width, 'large');
-            height: 50rem;
+            height: 64rem;
+            padding: 3.2rem;
         }
     }
 }
@@ -43,6 +49,11 @@
 
         @include a.respond-to('medium') {
             padding: 3.2rem;
+        }
+
+        @include a.respond-to('large') {
+            max-width: map-get(a.$container-width, 'large');
+            margin: 0 auto;
         }
     }
 
@@ -69,7 +80,12 @@
         width: 100%;
 
         @include a.respond-to('medium') {
-            height: calc(100% * 0.5625);
+            max-height: 30vw;
+            object-fit: cover;
+        }
+
+        @include a.respond-to('large') {
+            max-height: 54rem;
         }
     }
 
@@ -77,61 +93,76 @@
         font-weight: map-get(a.$font-weights, 'semi-bold');
 
         @include a.respond-to('medium') {
+            width: 85%;
+            margin: 0 auto 1.6rem;
             font-size: 2.4rem;
             line-height: 3.2rem;
-            margin: 0 auto 1.6rem;
-            width: 85%;
         }
     }
 
     &__author {
-        font-weight: map-get(a.$font-weights, 'semi-bold');
         margin-bottom: 1.6rem;
+        font-weight: map-get(a.$font-weights, 'semi-bold');
 
         @include a.respond-to('medium') {
-            margin: 0 auto 1.6rem;
             width: 85%;
+            margin: 0 auto 1.6rem;
             font-size: 1.8rem;
         }
-
     }
 
     &__subheading {
 
         @include a.respond-to('medium') {
-            margin: 3.2rem auto;
             width: 85%;
+            margin: 4rem auto 1.6rem;
         }
     }
 
     &__description {
 
         @include a.respond-to('medium') {
-            margin: 0 auto;
             width: 85%;
+            margin: 0 auto;
             display: flex;
             gap: 3.2rem;
+        }
+
+        @include a.respond-to('large') {
+            gap: 6.4rem;
+
         }
     }
 
     &__text {
         margin-bottom: 1.6rem;
     }
-
 }
 
 .gallery {
+    background-color: a.color('secondary', 'alternate');
 
     &__wrapper {
         padding: 0 1.6rem;
 
         @include a.respond-to('medium') {
-            padding: 1.6rem 3.2rem;
+            max-width: map-get(a.$container-width, 'medium');
+            margin: 0 auto;
+            padding: 1.6rem;
+        }
+
+        @include a.respond-to('large') {
+            max-width: map-get(a.$container-width, 'large');
+            margin: 0 auto;
         }
     }
 
     &__heading{
         padding: 1.6rem 0;
+
+        @include a.respond-to('large') {
+            margin-top: 2.4rem;
+        }
     }
 
     &__img-container {
@@ -145,14 +176,10 @@
                     repeat(3, 1fr)
             );
         }
-    }
 
-    &__img {
-
-        @include a.respond-to('medium') {
-            //width: 30%;
+        @include a.respond-to('large') {
+            margin: 0 auto;
+            padding: 3.2rem 0;
         }
     }
-
-
 }
