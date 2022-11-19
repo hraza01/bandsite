@@ -40,7 +40,8 @@
     &__name,
     &__text,
     &__address,
-    &__copyright {
+    &__copyright,
+    &__link {
         margin-bottom: 1.6rem;
         color: a.color('primary', 'alternate');
         font-style: normal;
@@ -114,6 +115,10 @@
             top: 3.2rem;
             right: 1.6rem;
         }
+    }
+
+    &__link {
+        text-decoration: none;
     }
 
     &__copyright {
