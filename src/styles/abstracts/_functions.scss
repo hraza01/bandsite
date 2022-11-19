@@ -1,8 +1,7 @@
 // -----------------------------------------------------------------------------
 // This file contains all application-wide Sass functions.
 // -----------------------------------------------------------------------------
-@use "./variables" as v;
-
+@use './variables' as v;
 
 /// Native `url(..)` function wrapper
 /// @param {String} $base - base URL for the asset

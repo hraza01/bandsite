@@ -1,9 +1,8 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
-@use "../abstracts" as a;
-@use "../base" as b;
-
+@use '../abstracts' as a;
+@use '../base' as b;
 
 .header {
     background-color: a.color('primary', 'base');

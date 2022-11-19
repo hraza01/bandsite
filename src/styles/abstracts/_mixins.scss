@@ -1,8 +1,8 @@
 // -----------------------------------------------------------------------------
 // This file contains all application-wide Sass mixins.
 // -----------------------------------------------------------------------------
-@use "./variables" as v;
-@use "./functions" as f;
+@use './variables' as v;
+@use './functions' as f;
 
 /// Event wrapper
 /// @author Harry Roberts
@@ -45,9 +45,9 @@
 
     @if $raw-query {
         $query: if(
-                type-of($raw-query) == 'string',
-                unquote($raw-query),
-                inspect($raw-query)
+            type-of($raw-query) == 'string',
+            unquote($raw-query),
+            inspect($raw-query)
         );
 
         @media #{$query} {
