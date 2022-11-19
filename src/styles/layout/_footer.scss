@@ -22,7 +22,7 @@
         }
     }
 
-    &__header {
+    &__title {
 
         @include a.respond-to('medium') {
             display: flex;

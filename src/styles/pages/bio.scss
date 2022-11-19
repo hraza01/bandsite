@@ -119,7 +119,7 @@
         }
     }
 
-    &__description {
+    &__text-container {
 
         @include a.respond-to('medium') {
             width: 85%;
@@ -130,7 +130,6 @@
 
         @include a.respond-to('large') {
             gap: 6.4rem;
-
         }
     }
 
