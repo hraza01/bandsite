@@ -4,6 +4,7 @@
 @use '../abstracts' as a;
 
 body {
+    color: a.color('primary', 'base');
     font: normal map-get(a.$font-weights, 'regular') 1.3rem / 1.8rem
         a.$text-font-stack;
 
@@ -14,7 +15,6 @@ body {
     @include a.respond-to('large') {
         font: normal 1.6rem / 2.2rem a.$text-font-stack;
     }
-    color: a.color('primary', 'base');
 }
 
 h1,
