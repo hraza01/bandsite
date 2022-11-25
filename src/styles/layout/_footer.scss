@@ -60,7 +60,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        gap: 2rem;
+        gap: 2.4rem;
 
         @include a.respond-to('medium') {
             padding: 2.4rem;
@@ -70,6 +70,10 @@
     }
 
     &__icon {
+        @include a.flex-center();
+        width: 2.4rem;
+        height: 2.4rem;
+
         @include a.respond-to('medium') {
             scale: 1.3;
         }
@@ -81,22 +85,23 @@
         @include a.respond-to('medium') {
             display: flex;
             flex-wrap: wrap;
-            column-gap: 3.2rem;
+            column-gap: 5.8rem;
             row-gap: 1.6rem;
         }
 
         @include a.respond-to('large') {
             max-width: 75%;
-            gap: 3.2rem;
+            gap: 4.2rem;
         }
     }
 
     &__article {
         @include a.respond-to('medium') {
-            max-width: 25%;
+            max-width: 30%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            gap: 1.4rem;
         }
     }
 

@@ -34,7 +34,7 @@ $container-width: (
 /// @prop {Map} values - Values are actual breakpoints expressed in pixels
 $breakpoints: (
     'medium': (
-        min-width: 36em,
+        min-width: 48em,
     ),
     'large': (
         min-width: 80em,
