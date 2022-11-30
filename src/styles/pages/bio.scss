@@ -162,14 +162,15 @@
         gap: 1.6rem;
         margin-bottom: 1.6rem;
 
-        &:hover img {
-            transition: all 0.3s;
-            filter: grayscale(100%);
-        }
-
-        &:hover img:hover {
-            filter: none;
-        }
+        // turned off as its not a requirement
+        //&:hover img {
+        //    transition: all 0.3s;
+        //    filter: grayscale(100%);
+        //}
+        //
+        //&:hover img:hover {
+        //    filter: none;
+        //}
 
         @include a.respond-to('medium') {
             @include a.grid(repeat(3, 1fr), repeat(3, 1fr));
@@ -178,6 +179,15 @@
         @include a.respond-to('large') {
             margin: 0 auto;
             padding: 3.2rem 0;
+        }
+    }
+
+    &__img {
+        transition: all 0.3s;
+        filter: grayscale(100%);
+
+        &:hover {
+            filter: none;
         }
     }
 }
