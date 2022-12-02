@@ -122,10 +122,6 @@
             display: flex;
             gap: 3.2rem;
         }
-
-        @include a.respond-to('large') {
-            gap: 6.4rem;
-        }
     }
 
     &__text {

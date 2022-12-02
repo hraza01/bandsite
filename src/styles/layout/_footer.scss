@@ -87,7 +87,7 @@
         @include a.respond-to('medium') {
             display: flex;
             flex-wrap: wrap;
-            column-gap: 5.8rem;
+            column-gap: 5.6rem;
             row-gap: 1.6rem;
         }
 
@@ -115,7 +115,7 @@
         @include a.respond-to('medium') {
             margin-top: 0;
             position: absolute;
-            top: 3.2rem;
+            top: 4.8rem;
             right: 0;
         }
     }
