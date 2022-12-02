@@ -29,29 +29,30 @@
 
         @include a.respond-to('medium') {
             height: 40rem;
-            padding: 1.6rem;
+            padding: 1.6rem 0;
             max-width: map-get(a.$container-width, 'medium');
         }
 
         @include a.respond-to('large') {
             max-width: map-get(a.$container-width, 'large');
             height: 64rem;
-            padding: 3.2rem;
+            padding: 3.2rem 0;
         }
     }
 }
 
 .about {
     &__wrapper {
-        padding: 0 1.6rem;
+        margin: 0 auto;
+        max-width: map-get(a.$container-width, 'small');
 
         @include a.respond-to('medium') {
-            padding: 3.2rem;
+            max-width: map-get(a.$container-width, 'medium');
         }
 
         @include a.respond-to('large') {
             max-width: map-get(a.$container-width, 'large');
-            margin: 0 auto;
+            padding: 3.2rem 0;
         }
     }
 
@@ -84,14 +85,15 @@
 
         @include a.respond-to('medium') {
             width: 85%;
-            margin: 0 auto 1.6rem;
+            padding-bottom: 1.6rem;
+            margin: 0 auto;
             font-size: 2.4rem;
             line-height: 3.2rem;
         }
 
         @include a.respond-to('large') {
-            max-width: 60%;
-            margin: 0 auto 1.6rem 9.6rem;
+            max-width: 70%;
+            margin-left: 7.8rem;
         }
     }
 
@@ -135,17 +137,17 @@
     background-color: a.color('secondary', 'alternate');
 
     &__wrapper {
-        padding: 0 1.6rem;
+        margin: 0 auto;
+        padding: 1.6rem 0;
+        max-width: map-get(a.$container-width, 'small');
 
         @include a.respond-to('medium') {
+            padding: 3.2rem 0;
             max-width: map-get(a.$container-width, 'medium');
-            margin: 0 auto;
-            padding: 1.6rem;
         }
 
         @include a.respond-to('large') {
             max-width: map-get(a.$container-width, 'large');
-            margin: 0 auto;
         }
     }
 
@@ -160,17 +162,6 @@
     &__img-container {
         @include a.flex-center(column);
         gap: 1.6rem;
-        margin-bottom: 1.6rem;
-
-        // turned off as its not a requirement
-        //&:hover img {
-        //    transition: all 0.3s;
-        //    filter: grayscale(100%);
-        //}
-        //
-        //&:hover img:hover {
-        //    filter: none;
-        //}
 
         @include a.respond-to('medium') {
             @include a.grid(repeat(3, 1fr), repeat(3, 1fr));

@@ -11,7 +11,7 @@
     @include a.respond-to('medium') {
         display: flex;
         justify-content: flex-start;
-        padding: 0 1.6rem;
+        //padding: 0 1.6rem;
     }
 
     @include a.respond-to('large') {
@@ -32,7 +32,7 @@
         align-items: center;
 
         @include a.respond-to('medium') {
-            width: 100%;
+            max-width: map-get(a.$container-width, 'medium');
             padding-top: 0;
             display: flex;
             justify-content: flex-start;
@@ -82,7 +82,6 @@
 
     @include a.respond-to('large') {
         max-width: map-get(a.$container-width, 'large');
-        padding: 0 3.2rem;
         margin: 0 auto;
     }
 }

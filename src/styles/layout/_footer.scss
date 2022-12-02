@@ -8,11 +8,13 @@
     background-color: a.color('primary', 'base');
 
     &__wrapper {
-        padding: 2.4rem 1.6rem 0.8rem;
+        max-width: map-get(a.$container-width, 'small');
+        margin: 0 auto;
+        padding: 1.6rem 0;
 
         @include a.respond-to('medium') {
-            width: 100%;
-            margin: 0 auto;
+            max-width: map-get(a.$container-width, 'medium');
+            padding: 3.6rem 0;
             position: relative;
         }
 
@@ -91,7 +93,7 @@
 
         @include a.respond-to('large') {
             max-width: 75%;
-            gap: 4.2rem;
+            gap: 7.2rem;
         }
     }
 
@@ -114,7 +116,7 @@
             margin-top: 0;
             position: absolute;
             top: 3.2rem;
-            right: 1.6rem;
+            right: 0;
         }
     }
 
@@ -126,9 +128,5 @@
         @include a.respond-to('medium') {
             margin-bottom: 0;
         }
-    }
-
-    @include a.respond-to('medium') {
-        padding: 4rem 1.6rem;
     }
 }
