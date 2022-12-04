@@ -49,6 +49,7 @@ build/Release
 
 # Dependency directories
 node_modules/
+package.json
 
 # Optional npm cache directory
 .npm
@@ -68,8 +69,9 @@ node_modules/
 # dotenv environment variables file
 .env
 
-#Ignore scss map files
+#Ignore styles map files
 *.css.map
 *.css
 .DS_Store
 *.iml
+**/README.md

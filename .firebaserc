@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "dice-game-c5749"
-  }
+  },
+  "targets": {
+    "dice-game-c5749": {
+      "hosting": {
+        "band-site": [
+          "band-site"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

@@ -1,0 +1,87 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+@use '../abstracts' as a;
+@use '../base' as b;
+
+.header {
+    background-color: a.color('primary', 'base');
+    min-height: 7.7rem;
+
+    @include a.respond-to('medium') {
+        display: flex;
+        justify-content: flex-start;
+        //padding: 0 1.6rem;
+    }
+
+    @include a.respond-to('large') {
+        padding: 0 3.2rem;
+    }
+}
+
+.nav {
+    @include a.flex-center(column);
+    width: 100%;
+    padding-top: 1.6rem;
+
+    &__list {
+        width: 100%;
+        padding-top: 0.4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include a.respond-to('medium') {
+            max-width: map-get(a.$container-width, 'medium');
+            padding-top: 0;
+            display: flex;
+            justify-content: flex-start;
+            gap: 3.2rem;
+        }
+    }
+
+    &__item {
+        @include a.flex-center();
+        width: 100%;
+        margin: 0 auto;
+        padding: 0.8rem 4.8rem;
+        border-bottom: 2px solid transparent;
+        transition: 0.1s;
+
+        &:hover,
+        &--active {
+            border-bottom: 2px solid a.color('primary', 'alternate');
+        }
+
+        @include a.respond-to('medium') {
+            width: fit-content;
+            margin: 0;
+            padding: 2.6rem 0;
+            align-items: flex-start;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        letter-spacing: 0.025rem;
+        color: a.color('primary', 'neutral');
+
+        &--active {
+            color: a.color('primary', 'alternate');
+        }
+    }
+
+    @include a.respond-to('medium') {
+        flex-direction: row;
+        max-width: map-get(a.$container-width, 'medium');
+        min-height: 100%;
+        margin: auto;
+        padding: 0;
+        gap: 5.6rem;
+    }
+
+    @include a.respond-to('large') {
+        max-width: map-get(a.$container-width, 'large');
+        margin: 0 auto;
+    }
+}
