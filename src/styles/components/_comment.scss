@@ -1,0 +1,38 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the comment component.
+// -----------------------------------------------------------------------------
+@use '../abstracts';
+@use '../base';
+@use './avatar';
+
+@mixin comment() {
+    @include abstracts.flex-center();
+    align-items: flex-start;
+    gap: 1.6rem;
+    padding: 1.6rem 0;
+    border-top: 1px solid abstracts.color('primary', 'neutral');
+
+    &:last-child {
+        border-bottom: 1px solid abstracts.color('primary', 'neutral');
+    }
+
+    &-avatar {
+        @include avatar.comment-avatar();
+    }
+
+    &-description {
+        @include abstracts.grid(repeat(2, 1fr), 1fr);
+        justify-items: start;
+        align-items: start;
+    }
+
+    &-time {
+        color: abstracts.color('primary', 'neutral');
+        justify-self: end;
+    }
+
+    &-text {
+        grid-column: 1 / -1;
+        padding-top: 0.8rem;
+    }
+}
