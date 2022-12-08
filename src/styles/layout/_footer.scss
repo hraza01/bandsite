@@ -1,37 +1,37 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the footer of the site/application.
 // -----------------------------------------------------------------------------
-@use '../abstracts' as a;
-@use '../base' as b;
+@use '../abstracts';
+@use '../base';
 
 .footer {
-    background-color: a.color('primary', 'base');
+    background-color: abstracts.color('primary', 'base');
 
     &__wrapper {
-        max-width: map-get(a.$container-width, 'small');
+        max-width: map-get(abstracts.$container-width, 'small');
         margin: 0 auto;
         padding: 1.6rem 0;
 
-        @include a.respond-to('medium') {
-            max-width: map-get(a.$container-width, 'medium');
+        @include abstracts.respond-to('medium') {
+            max-width: map-get(abstracts.$container-width, 'medium');
             padding: 3.6rem 0;
             position: relative;
         }
 
-        @include a.respond-to('large') {
-            max-width: map-get(a.$container-width, 'large');
+        @include abstracts.respond-to('large') {
+            max-width: map-get(abstracts.$container-width, 'large');
         }
     }
 
     &__title {
-        @include a.respond-to('medium') {
+        @include abstracts.respond-to('medium') {
             display: flex;
             align-items: center;
             gap: 2rem;
             margin-bottom: 4rem;
         }
 
-        @include a.respond-to('large') {
+        @include abstracts.respond-to('large') {
             gap: 3.2rem;
         }
     }
@@ -43,18 +43,18 @@
     &__copyright,
     &__link {
         margin-bottom: 1.6rem;
-        color: a.color('primary', 'alternate');
+        color: abstracts.color('primary', 'alternate');
         font-style: normal;
     }
 
     &__heading {
-        @include a.respond-to('medium') {
+        @include abstracts.respond-to('medium') {
             margin: 0;
         }
     }
 
     &__name {
-        font-weight: map-get(a.$font-weights, 'semi-bold');
+        font-weight: map-get(abstracts.$font-weights, 'semi-bold');
     }
 
     &__icon-container {
@@ -64,7 +64,7 @@
         align-items: center;
         gap: 2.4rem;
 
-        @include a.respond-to('medium') {
+        @include abstracts.respond-to('medium') {
             padding: 2.4rem;
             gap: 3.2rem;
             margin: 0;
@@ -72,11 +72,11 @@
     }
 
     &__icon {
-        @include a.flex-center();
+        @include abstracts.flex-center();
         width: 2.4rem;
         height: 2.4rem;
 
-        @include a.respond-to('medium') {
+        @include abstracts.respond-to('medium') {
             scale: 1.3;
         }
     }
@@ -84,21 +84,21 @@
     &__content {
         margin-bottom: 3.2rem;
 
-        @include a.respond-to('medium') {
+        @include abstracts.respond-to('medium') {
             display: flex;
             flex-wrap: wrap;
             column-gap: 5.6rem;
             row-gap: 1.6rem;
         }
 
-        @include a.respond-to('large') {
+        @include abstracts.respond-to('large') {
             max-width: 75%;
             gap: 7.2rem;
         }
     }
 
     &__article {
-        @include a.respond-to('medium') {
+        @include abstracts.respond-to('medium') {
             max-width: 30%;
             display: flex;
             flex-direction: column;
@@ -112,7 +112,7 @@
         padding: 1.6rem 0;
         display: block;
 
-        @include a.respond-to('medium') {
+        @include abstracts.respond-to('medium') {
             margin-top: 0;
             position: absolute;
             top: 4.8rem;
@@ -125,7 +125,7 @@
     }
 
     &__copyright {
-        @include a.respond-to('medium') {
+        @include abstracts.respond-to('medium') {
             margin-bottom: 0;
         }
     }

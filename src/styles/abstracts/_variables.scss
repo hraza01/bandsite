@@ -19,6 +19,9 @@ $colors: (
         'neutral': #e1e1e1,
         'alternate': #fafafa,
     ),
+    'conditional': (
+        'error': #d22d2d,
+    ),
 ) !default;
 
 /// Container's maximum width

@@ -27,15 +27,6 @@
 //    }
 //}
 
-/// Make a context based selector a little more friendly
-/// @author Kitty Giraudel
-/// @param {String} $context
-//@mixin when-inside($context) {
-//    #{$context} & {
-//        @content;
-//    }
-//}
-
 /// Responsive breakpoint manager
 /// @access public
 /// @param {String} $breakpoint - Breakpoint
@@ -60,7 +51,7 @@
 }
 
 /// Make an element a flexbox with centered sub-elements
-/// @param {String} $direction - column/row
+/// @param {value} $direction - column/row
 @mixin flex-center($direction: row) {
     display: flex;
     flex-direction: $direction;
@@ -68,8 +59,35 @@
     align-items: center;
 }
 
+/// Make an element a grid container with $column and $rows
+/// @param {value} $direction - column/row
 @mixin grid($column, $row) {
     display: grid;
     grid-template-columns: $column;
     grid-template-rows: $row;
+}
+
+/// Default section wrapper for all pages except hero section
+@mixin section-wrapper() {
+    margin: 0 auto;
+    max-width: map-get(v.$container-width, 'small');
+
+    @include respond-to('medium') {
+        max-width: map-get(v.$container-width, 'medium');
+        padding: 1.6rem 0;
+    }
+
+    @include respond-to('large') {
+        max-width: map-get(v.$container-width, 'large');
+        padding: 3.2rem 0;
+    }
+}
+
+@mixin section-heading() {
+    padding: 2.4rem 0 1.6rem;
+
+    @include respond-to('medium') {
+        line-height: 3.2rem;
+        padding: 4.8rem 0 3.6rem;
+    }
 }

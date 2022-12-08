@@ -27,11 +27,11 @@ h1 {
         font-weight: map-get(a.$font-weights, 'semi-bold');
     }
 
-    @include a.respond-to('large') {
-        font-size: 6rem;
-        line-height: 6.8rem;
-        font-weight: map-get(a.$font-weights, 'semi-bold');
-    }
+    //@include a.respond-to('large') {
+    //    font-size: 6rem;
+    //    line-height: 6.8rem;
+    //    font-weight: map-get(a.$font-weights, 'semi-bold');
+    //}
 }
 
 h2 {
@@ -41,11 +41,11 @@ h2 {
         font-weight: map-get(a.$font-weights, 'semi-bold');
     }
 
-    @include a.respond-to('large') {
-        font-size: 3.6rem;
-        line-height: 4.4rem;
-        font-weight: map-get(a.$font-weights, 'semi-bold');
-    }
+    //@include a.respond-to('large') {
+    //    font-size: 3.6rem;
+    //    line-height: 4.4rem;
+    //    font-weight: map-get(a.$font-weights, 'semi-bold');
+    //}
 }
 
 h3 {
@@ -59,11 +59,29 @@ h3 {
         font-weight: map-get(a.$font-weights, 'semi-bold');
     }
 
-    @include a.respond-to('large') {
-        font-size: 2.4rem;
+    //@include a.respond-to('large') {
+    //    font-size: 2.4rem;
+    //    line-height: 3.2rem;
+    //    font-weight: map-get(a.$font-weights, 'semi-bold');
+    //}
+}
+
+h4 {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    font-weight: map-get(a.$font-weights, 'semi-bold');
+
+    @include a.respond-to('medium') {
+        font-size: 1.6rem;
         line-height: 3.2rem;
         font-weight: map-get(a.$font-weights, 'semi-bold');
     }
+
+    //@include a.respond-to('large') {
+    //    font-size: 1.6rem;
+    //    line-height: 3.2rem;
+    //    font-weight: map-get(a.$font-weights, 'semi-bold');
+    //}
 }
 
 footer > p {
@@ -77,28 +95,47 @@ footer > p {
         font-weight: map-get(a.$font-weights, 'regular');
     }
 
-    @include a.respond-to('large') {
-        font-size: 1.4rem;
-        line-height: 2rem;
-        font-weight: map-get(a.$font-weights, 'regular');
-    }
+    //@include a.respond-to('large') {
+    //    font-size: 1.4rem;
+    //    line-height: 2rem;
+    //    font-weight: map-get(a.$font-weights, 'regular');
+    //}
 }
 
-a,
+label,
 button {
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 2rem;
     font-weight: map-get(a.$font-weights, 'regular');
 
     @include a.respond-to('medium') {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         line-height: 2rem;
         font-weight: map-get(a.$font-weights, 'regular');
     }
 
-    @include a.respond-to('large') {
-        font-size: 1.4rem;
-        line-height: 2rem;
-        font-weight: map-get(a.$font-weights, 'regular');
-    }
+    //@include a.respond-to('large') {
+    //    font-size: 1.2rem;
+    //    line-height: 2rem;
+    //    font-weight: map-get(a.$font-weights, 'regular');
+    //}
 }
+
+//a,
+//button {
+//    font-size: 1.2rem;
+//    line-height: 2rem;
+//    font-weight: map-get(a.$font-weights, 'regular');
+//
+//    @include a.respond-to('medium') {
+//        font-size: 1.4rem;
+//        line-height: 2rem;
+//        font-weight: map-get(a.$font-weights, 'regular');
+//    }
+//
+//    @include a.respond-to('large') {
+//        font-size: 1.4rem;
+//        line-height: 2rem;
+//        font-weight: map-get(a.$font-weights, 'regular');
+//    }
+//}
