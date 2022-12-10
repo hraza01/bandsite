@@ -68,6 +68,9 @@ export function addEvent(event) {
     eventBtn.classList.add("shows__btn");
 
     // assign show values
+    eventDateLabel.textContent = "date";
+    eventVenueLabel.textContent = "venue";
+    eventLocationLabel.textContent = "location";
     eventDate.textContent = event.date;
     eventVenue.textContent = event.venue;
     eventLocation.textContent = event.location;
