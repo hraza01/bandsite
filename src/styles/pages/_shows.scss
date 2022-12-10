@@ -1,10 +1,10 @@
 // -----------------------------------------------------------------------------
 // This file contains styles that are specific to the shows page.
 // -----------------------------------------------------------------------------
-@use '../abstracts';
-@use '../base';
-@use '../components';
-@use '../layout';
+@use "../abstracts";
+@use "../base";
+@use "../components";
+@use "../layout";
 
 .showsHero {
     background-size: cover;
@@ -13,10 +13,10 @@
             rgba(50, 50, 50, 0.5),
             rgba(50, 50, 50, 0.5)
         ),
-        abstracts.image('hero-shows.jpg');
+        abstracts.image("hero-shows.jpg");
 
     &__wrapper {
-        max-width: map-get(abstracts.$container-width, 'small');
+        max-width: map-get(abstracts.$container-width, "small");
         margin: 0 auto;
         display: flex;
         align-items: flex-start;
@@ -26,15 +26,15 @@
         padding: 3.2rem 0;
         height: 32rem;
 
-        @include abstracts.respond-to('medium') {
+        @include abstracts.respond-to("medium") {
             gap: 3.2rem;
             height: 40rem;
             padding: 1.6rem 0;
-            max-width: map-get(abstracts.$container-width, 'medium');
+            max-width: map-get(abstracts.$container-width, "medium");
         }
 
-        @include abstracts.respond-to('large') {
-            max-width: map-get(abstracts.$container-width, 'large');
+        @include abstracts.respond-to("large") {
+            max-width: map-get(abstracts.$container-width, "large");
             height: 64rem;
             padding: 3.2rem 0;
             position: relative;
@@ -42,19 +42,19 @@
     }
 
     &__text {
-        color: abstracts.color('primary', 'alternate');
+        color: abstracts.color("primary", "alternate");
     }
 
     &__heading {
-        max-width: 75%;
-        color: abstracts.color('primary', 'alternate');
+        max-width: 24rem;
+        color: abstracts.color("primary", "alternate");
 
-        @include abstracts.respond-to('medium') {
-            max-width: 75%;
+        @include abstracts.respond-to("medium") {
+            max-width: 56rem;
         }
 
-        @include abstracts.respond-to('large') {
-            max-width: 47.5%;
+        @include abstracts.respond-to("large") {
+            max-width: 48rem;
         }
     }
 
@@ -64,11 +64,11 @@
         max-width: 50rem;
         height: 16.6rem;
 
-        @include abstracts.respond-to('medium') {
+        @include abstracts.respond-to("medium") {
             width: 60%;
         }
 
-        @include abstracts.respond-to('large') {
+        @include abstracts.respond-to("large") {
             width: 45%;
             position: absolute;
             top: 42.5%;
@@ -76,7 +76,7 @@
         }
     }
 
-    @include abstracts.respond-to('medium') {
+    @include abstracts.respond-to("medium") {
         padding: 6.4rem 0;
     }
 }
@@ -85,7 +85,7 @@
     &__wrapper {
         @include abstracts.section-wrapper();
 
-        @include abstracts.respond-to('large') {
+        @include abstracts.respond-to("large") {
             display: grid;
             grid-template-columns: 1fr 4fr;
             align-items: start;
