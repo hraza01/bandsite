@@ -16,10 +16,8 @@
         border-bottom: 1px solid abstracts.color('primary', 'neutral');
     }
 
-    &-avatar {
-        @include avatar.comment-avatar();
-    }
-
+    // below rule sets are not modifiers in BEM,
+    // they only take advantage of nesting in SASS.
     &-description {
         @include abstracts.grid(repeat(2, 1fr), 1fr);
         justify-items: start;

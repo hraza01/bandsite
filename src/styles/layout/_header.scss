@@ -65,7 +65,12 @@
         letter-spacing: 0.025rem;
         color: abstracts.color('primary', 'neutral');
 
-        &--active {
+        &:hover {
+            color: abstracts.color('secondary', 'neutral');
+        }
+
+        &--active,
+        &--active:hover {
             color: abstracts.color('primary', 'alternate');
         }
     }

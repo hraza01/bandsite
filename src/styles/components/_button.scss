@@ -4,7 +4,7 @@
 @use '../abstracts';
 @use '../base';
 
-@mixin button-primary() {
+.btn {
     display: inline-block;
     width: 100%;
     height: 4rem;
@@ -22,9 +22,17 @@
     }
 
     @include abstracts.respond-to('medium') {
-        width: 30%;
+        width: fit-content;
         min-width: 15rem;
         padding: 0 3.2rem;
+    }
+}
+
+.cta__btn,
+.shows__btn {
+    @extend .btn;
+
+    @include abstracts.respond-to('medium') {
         margin-left: auto;
     }
 }

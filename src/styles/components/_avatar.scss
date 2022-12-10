@@ -4,28 +4,34 @@
 @use '../abstracts';
 @use '../base';
 
-@mixin form-avatar() {
+.avatar {
     width: 3.6rem;
     height: 3.6rem;
     object-fit: cover;
     border-radius: 50%;
-    margin-top: 2.4rem;
 
     @include abstracts.respond-to('medium') {
-        min-width: 4.8rem;
+        width: 4.8rem;
         height: 4.8rem;
     }
 }
 
-@mixin comment-avatar() {
-    background-color: abstracts.color('primary', 'neutral');
-    min-width: 3.6rem;
-    height: 3.6rem;
-    object-fit: cover;
-    border-radius: 50%;
+.cta {
 
-    @include abstracts.respond-to('medium') {
-        min-width: 4.8rem;
-        height: 4.8rem;
+    &__profile-avatar {
+        @extend .avatar;
+
+        margin-top: 2.4rem;
+    }
+
+    &__comment-avatar {
+        @extend .avatar;
+
+        min-width: 3.6rem;
+        background-color: abstracts.color('primary', 'neutral');
+
+        @include abstracts.respond-to('medium') {
+            min-width: 4.8rem;
+        }
     }
 }

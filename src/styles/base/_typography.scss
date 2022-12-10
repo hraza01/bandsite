@@ -21,6 +21,8 @@ h2 {
 }
 
 h1 {
+    color: a.color('primary', 'alternate');
+    
     @include a.respond-to('medium') {
         font-size: 6rem;
         line-height: 6.8rem;

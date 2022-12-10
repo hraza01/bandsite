@@ -1,0 +1,105 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the shows page.
+// -----------------------------------------------------------------------------
+@use '../abstracts';
+@use '../base';
+@use '../components';
+@use '../layout';
+
+.showsHero {
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(
+            rgba(50, 50, 50, 0.5),
+            rgba(50, 50, 50, 0.5)
+        ),
+        abstracts.image('hero-shows.jpg');
+
+    &__wrapper {
+        max-width: map-get(abstracts.$container-width, 'small');
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1.6rem;
+        padding: 3.2rem 0;
+        height: 32rem;
+
+        @include abstracts.respond-to('medium') {
+            gap: 3.2rem;
+            height: 40rem;
+            padding: 1.6rem 0;
+            max-width: map-get(abstracts.$container-width, 'medium');
+        }
+
+        @include abstracts.respond-to('large') {
+            max-width: map-get(abstracts.$container-width, 'large');
+            height: 64rem;
+            padding: 3.2rem 0;
+            position: relative;
+        }
+    }
+
+    &__text {
+        color: abstracts.color('primary', 'alternate');
+    }
+
+    &__heading {
+        max-width: 75%;
+        color: abstracts.color('primary', 'alternate');
+
+        @include abstracts.respond-to('medium') {
+            max-width: 75%;
+        }
+
+        @include abstracts.respond-to('large') {
+            max-width: 47.5%;
+        }
+    }
+
+    &__player {
+        border: none;
+        width: 100%;
+        max-width: 50rem;
+        height: 16.6rem;
+
+        @include abstracts.respond-to('medium') {
+            width: 60%;
+        }
+
+        @include abstracts.respond-to('large') {
+            width: 45%;
+            position: absolute;
+            top: 42.5%;
+            right: 0;
+        }
+    }
+
+    @include abstracts.respond-to('medium') {
+        padding: 6.4rem 0;
+    }
+}
+
+.shows {
+    &__wrapper {
+        @include abstracts.section-wrapper();
+
+        @include abstracts.respond-to('large') {
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            align-items: start;
+        }
+    }
+
+    &__heading {
+        @include abstracts.section-heading();
+    }
+
+    &__event-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 1.6rem;
+    }
+}

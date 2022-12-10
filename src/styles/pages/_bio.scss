@@ -3,21 +3,17 @@
 // -----------------------------------------------------------------------------
 @use '../abstracts';
 @use '../base';
-@use '../layout';
 @use '../components';
+@use '../layout';
 
-.cover {
+.bioHero {
+    background-size: cover;
+    background-position: center;
     background-image: linear-gradient(
             rgba(50, 50, 50, 0.5),
             rgba(50, 50, 50, 0.5)
         ),
         abstracts.image('hero-bio.jpg');
-    background-size: cover;
-    background-position: center;
-
-    &__heading {
-        color: abstracts.color('primary', 'alternate');
-    }
 
     &__wrapper {
         max-width: map-get(abstracts.$container-width, 'small');
@@ -38,6 +34,10 @@
             height: 64rem;
             padding: 3.2rem 0;
         }
+    }
+
+    &__heading {
+        color: abstracts.color('primary', 'alternate');
     }
 }
 
@@ -174,16 +174,8 @@
         }
     }
 
-    &__profile-avatar {
-        @include components.form-avatar();
-    }
-
     &__form {
         @include components.base-form();
-    }
-
-    &__btn {
-        @include components.button-primary();
     }
 
     &__comment-container {
@@ -199,6 +191,7 @@
 
         @include abstracts.respond-to('large') {
             max-width: 50rem;
+            padding: 3.2rem 0;
         }
     }
 

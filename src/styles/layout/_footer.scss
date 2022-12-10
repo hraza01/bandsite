@@ -31,8 +31,12 @@
             margin-bottom: 4rem;
         }
 
+        @include abstracts.respond-to('medium') {
+            gap: 2.4rem;
+        }
+
         @include abstracts.respond-to('large') {
-            gap: 3.2rem;
+            gap: 4.8rem;
         }
     }
 
@@ -87,19 +91,19 @@
         @include abstracts.respond-to('medium') {
             display: flex;
             flex-wrap: wrap;
-            column-gap: 5.6rem;
+            column-gap: 4rem;
             row-gap: 1.6rem;
         }
 
         @include abstracts.respond-to('large') {
             max-width: 75%;
-            gap: 7.2rem;
+            gap: 5.8rem;
         }
     }
 
     &__article {
         @include abstracts.respond-to('medium') {
-            max-width: 30%;
+            max-width: 33%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
