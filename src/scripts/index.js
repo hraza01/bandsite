@@ -1,5 +1,5 @@
 "use strict";
-import { addComment } from "./utils.js";
+import { addComment, renderElement } from "./utils.js";
 
 let comments = [
     {
@@ -21,6 +21,4 @@ let comments = [
 
 const commentContainer = document.querySelector(".cta__comment-container");
 
-comments.forEach((comment) => {
-    commentContainer.appendChild(addComment(comment));
-});
+renderElement(addComment, commentContainer, comments);

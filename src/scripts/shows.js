@@ -1,5 +1,5 @@
 "use strict";
-import { addEvent } from "./utils.js";
+import { addEvent, renderElement } from "./utils.js";
 
 const shows = [
     {
@@ -35,6 +35,4 @@ const shows = [
 ];
 const showContainer = document.querySelector(".shows__event-container");
 
-shows.forEach((show) => {
-    showContainer.appendChild(addEvent(show));
-});
+renderElement(addEvent, showContainer, shows);

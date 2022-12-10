@@ -1,3 +1,19 @@
+"use strict";
+
+export function renderElement(callback, container, array) {
+    try {
+        if (array.length > 0) {
+            array.forEach((item) => {
+                container.appendChild(callback(item));
+            });
+        } else {
+            container.appendChild(addPlaceholder());
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
 export function addComment(comment) {
     // create elements needed for a comment
     const commentBox = document.createElement("article");
@@ -81,4 +97,19 @@ export function addEvent(event) {
     });
 
     return eventBox;
+}
+
+export function addPlaceholder() {
+    const placeholderContainer = document.createElement("div");
+    const placeholder = document.createElement("p");
+
+    placeholderContainer.classList.add("cta__comment-description");
+    placeholder.classList.add("shows__event-venue");
+
+    placeholder.textContent = "No items yet";
+
+    placeholderContainer.appendChild(placeholder);
+    console.log(placeholderContainer);
+
+    return placeholderContainer;
 }
