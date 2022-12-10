@@ -5,11 +5,11 @@
 @use '../base';
 
 @mixin base-form() {
-    flex-grow: 1;
-    flex-basis: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 100%;
     justify-content: flex-start;
     align-items: flex-start;
 
