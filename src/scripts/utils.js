@@ -105,11 +105,8 @@ export function addPlaceholder() {
 
     placeholderContainer.classList.add("cta__comment-description");
     placeholder.classList.add("shows__event-venue");
-
     placeholder.textContent = "No items yet";
-
     placeholderContainer.appendChild(placeholder);
-    console.log(placeholderContainer);
 
     return placeholderContainer;
 }
