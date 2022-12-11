@@ -113,3 +113,7 @@ export function addPlaceholder() {
 
     return placeholderContainer;
 }
+
+export function getDynamicDate(date) {
+    return moment(date).fromNow();
+}

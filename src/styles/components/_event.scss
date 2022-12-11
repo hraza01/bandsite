@@ -1,9 +1,9 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the event component.
 // -----------------------------------------------------------------------------
-@use '../abstracts';
-@use '../base';
-@use './label';
+@use "../abstracts";
+@use "../base";
+@use "./label";
 
 .shows__event {
     margin: 0 -1.6rem;
@@ -11,7 +11,8 @@
     flex-direction: column;
     gap: 1.6rem;
     padding: 1.6rem;
-    border-bottom: 1px solid abstracts.color('secondary', 'neutral');
+    border-bottom: 1px solid abstracts.color("secondary", "neutral");
+    transition: 0.13s;
 
     // below rule sets are not modifiers in BEM,
     // they only take advantage of nesting in SASS.
@@ -23,7 +24,7 @@
         &-container {
             display: none;
 
-            @include abstracts.respond-to('medium') {
+            @include abstracts.respond-to("medium") {
                 // 100% minus button width (4th element)
                 width: calc(100% - 21.4rem);
                 display: flex;
@@ -32,13 +33,13 @@
                 margin-right: auto;
                 gap: 3.2rem;
 
-                @include abstracts.respond-to('large') {
+                @include abstracts.respond-to("large") {
                     padding-top: 6rem;
                 }
             }
         }
 
-        @include abstracts.respond-to('medium') {
+        @include abstracts.respond-to("medium") {
             display: none;
         }
     }
@@ -46,7 +47,7 @@
     &-title {
         @extend .label;
 
-        @include abstracts.respond-to('medium') {
+        @include abstracts.respond-to("medium") {
             width: 14rem;
             margin-right: auto;
 
@@ -66,31 +67,31 @@
     &-date,
     &-venue,
     &-location {
-        @include abstracts.respond-to('medium') {
+        @include abstracts.respond-to("medium") {
             width: 14rem;
             margin-left: auto;
         }
     }
 
     &-date {
-        @include abstracts.respond-to('medium') {
-            font-weight: map-get(abstracts.$font-weights, 'semi-bold');
+        @include abstracts.respond-to("medium") {
+            font-weight: map-get(abstracts.$font-weights, "semi-bold");
             margin-left: 0;
             margin-right: auto;
         }
     }
 
     &:hover {
-        background-color: abstracts.color('secondary', 'alternate');
+        background-color: abstracts.color("secondary", "alternate");
     }
 
     // modifiers
     &--selected,
     &--selected:hover {
-        background-color: abstracts.color('secondary', 'neutral');
+        background-color: abstracts.color("secondary", "neutral");
     }
 
-    @include abstracts.respond-to('medium') {
+    @include abstracts.respond-to("medium") {
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;

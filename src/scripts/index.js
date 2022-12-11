@@ -1,5 +1,5 @@
 "use strict";
-import { addComment, renderElement } from "./utils.js";
+import { addComment, getDynamicDate, renderElement } from "./utils.js";
 
 let comments = [
     {
@@ -20,5 +20,34 @@ let comments = [
 ];
 
 const commentContainer = document.querySelector(".cta__comment-container");
+const formElement = document.querySelector(".cta__form");
 
 renderElement(addComment, commentContainer, comments);
+
+formElement.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    let name = event.target.name.value;
+    let comment = event.target.comment.value;
+    let timestamp = moment().format("MM/DD/YYYY, h:mm:ss a");
+    let newComment = {
+        name: name,
+        timestamp: timestamp,
+        value: comment,
+    };
+
+    comments.unshift(newComment);
+    commentContainer.innerHTML = "";
+    
+    let newComments = JSON.parse(JSON.stringify(comments));
+
+    newComments.forEach((element, index, array) => {
+        if (index < array.length - 3) {
+            element.timestamp = getDynamicDate(element.timestamp);
+        }
+    });
+
+    renderElement(addComment, commentContainer, newComments);
+
+    event.target.reset();
+});

@@ -7,6 +7,7 @@
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <link href="./styles/main.css" rel="stylesheet">
     <script src="./scripts/index.js" type="module"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
     <title>Bandsite</title>
 </head>
 <body>
@@ -90,12 +91,14 @@
                      src="./assets/images/Mohan-muruge.jpg">
                 <form action="" class="cta__form">
                     <label for="name">name</label>
-                    <input id="name" placeholder="Enter your name"
+                    <input id="name" name="name"
+                           placeholder="Enter your name"
                            required
                            type="text"/>
 
                     <label for="comment">comment</label>
-                    <textarea id="comment" placeholder="Add a new comment"
+                    <textarea id="comment" name="comment"
+                              placeholder="Add a new comment"
                               required
                               rows="4"></textarea>
 

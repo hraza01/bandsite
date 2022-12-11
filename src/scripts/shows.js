@@ -34,5 +34,19 @@ const shows = [
     },
 ];
 const showContainer = document.querySelector(".shows__event-container");
-
 renderElement(addEvent, showContainer, shows);
+
+const eventElements = document.querySelectorAll(".shows__event");
+let clickedShow = null;
+
+function toggleOpen({ target }) {
+    const show = target.closest(".shows__event");
+    if (clickedShow) clickedShow.classList.remove("shows__event--selected");
+
+    show.classList.add("shows__event--selected");
+    clickedShow = show;
+}
+
+eventElements.forEach((show) => {
+    show.addEventListener("click", toggleOpen);
+});
