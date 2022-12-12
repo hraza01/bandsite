@@ -4,10 +4,10 @@ function renderElement(callback, container, array) {
     try {
         if (array.length > 0) {
             array.forEach((item) => {
-                container.appendChild(callback(item));
+                container.append(callback(item));
             });
         } else {
-            container.appendChild(addPlaceholder());
+            container.append(addPlaceholder());
         }
     } catch (error) {
         console.error(error.message);
@@ -23,9 +23,6 @@ function displayComment(comment) {
     const commentTimestamp = document.createElement("time");
     const commentValue = document.createElement("p");
 
-    const firstNode = [commentAvatar, commentDescription];
-    const secondNode = [commentName, commentTimestamp, commentValue];
-
     // add pre-defined styles for the created elements
     commentBox.classList.add("cta__comment");
     commentAvatar.classList.add("cta__comment-avatar");
@@ -39,13 +36,9 @@ function displayComment(comment) {
     commentTimestamp.textContent = comment.timestamp;
     commentValue.textContent = comment.value;
 
-    secondNode.forEach((element) => {
-        commentDescription.appendChild(element);
-    });
-
-    firstNode.forEach((element) => {
-        commentBox.appendChild(element);
-    });
+    // fit elements into their respective divs
+    commentDescription.append(commentName, commentTimestamp, commentValue);
+    commentBox.append(commentAvatar, commentDescription);
 
     return commentBox;
 }
@@ -62,15 +55,6 @@ function displayEvent(event) {
     const eventBtn = document.createElement("button");
 
     const labels = [eventDateLabel, eventVenueLabel, eventLocationLabel];
-    const elements = [
-        eventDateLabel,
-        eventDate,
-        eventVenueLabel,
-        eventVenue,
-        eventLocationLabel,
-        eventLocation,
-        eventBtn,
-    ];
 
     // add pre-defined styles for the created elements
     labels.forEach((label) => {
@@ -92,9 +76,15 @@ function displayEvent(event) {
     eventLocation.textContent = event.location;
     eventBtn.textContent = "buy tickets";
 
-    elements.forEach((value) => {
-        eventBox.appendChild(value);
-    });
+    eventBox.append(
+        eventDateLabel,
+        eventDate,
+        eventVenueLabel,
+        eventVenue,
+        eventLocationLabel,
+        eventLocation,
+        eventBtn
+    );
 
     return eventBox;
 }
@@ -106,7 +96,7 @@ function addPlaceholder() {
     placeholderContainer.classList.add("cta__comment-description");
     placeholder.classList.add("shows__event-venue");
     placeholder.textContent = "No items yet";
-    placeholderContainer.appendChild(placeholder);
+    placeholderContainer.append(placeholder);
 
     return placeholderContainer;
 }
