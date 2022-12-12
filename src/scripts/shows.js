@@ -1,5 +1,6 @@
 "use strict";
-import { addEvent, renderElement } from "./utils.js";
+import { displayEvent, renderElement } from "./utils.js";
+import { showsContainer } from "./constants.js";
 
 const shows = [
     {
@@ -33,10 +34,7 @@ const shows = [
         location: "San Francisco, CA",
     },
 ];
-const showContainer = document.querySelector(".shows__event-container");
-renderElement(addEvent, showContainer, shows);
 
-const eventElements = document.querySelectorAll(".shows__event");
 let clickedShow = null;
 
 function toggleOpen({ target }) {
@@ -47,6 +45,8 @@ function toggleOpen({ target }) {
     clickedShow = show;
 }
 
-eventElements.forEach((show) => {
+renderElement(displayEvent, showsContainer, shows);
+
+document.querySelectorAll(".shows__event").forEach((show) => {
     show.addEventListener("click", toggleOpen);
 });

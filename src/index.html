@@ -6,8 +6,8 @@
           name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <link href="./styles/main.css" rel="stylesheet">
-    <script src="./scripts/index.js" type="module"></script>
-    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script defer src="./scripts/index.js" type="module"></script>
+    <script defer src="https://momentjs.com/downloads/moment.js"></script>
     <title>Bandsite</title>
 </head>
 <body>
@@ -85,11 +85,14 @@
     <section class="cta">
         <div class="cta__wrapper">
             <h2 class="cta__heading">Join the Conversation</h2>
+            <div class="cta__error-container">
+                <p class="cta__error-message"></p>
+            </div>
             <div class="cta__form-container">
                 <img alt="user profile picture"
                      class="cta__profile-avatar"
                      src="./assets/images/Mohan-muruge.jpg">
-                <form action="" class="cta__form">
+                <form action="/" class="cta__form">
                     <label for="name">name</label>
                     <input id="name" name="name"
                            placeholder="Enter your name"

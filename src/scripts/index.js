@@ -1,5 +1,12 @@
 "use strict";
-import { addComment, getDynamicDate, renderElement } from "./utils.js";
+import { displayComment, getDynamicDate, renderElement } from "./utils.js";
+import {
+    commentContainer,
+    commentValidator,
+    errorMessage,
+    formElement,
+    nameValidator,
+} from "./constants.js";
 
 let comments = [
     {
@@ -19,35 +26,38 @@ let comments = [
     },
 ];
 
-const commentContainer = document.querySelector(".cta__comment-container");
-const formElement = document.querySelector(".cta__form");
-
-renderElement(addComment, commentContainer, comments);
-
 formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
-
     let name = event.target.name.value;
     let comment = event.target.comment.value;
-    let timestamp = moment().format("MM/DD/YYYY, h:mm:ss a");
-    let newComment = {
-        name: name,
-        timestamp: timestamp,
-        value: comment,
-    };
+    let valid = nameValidator.test(name) && commentValidator.test(comment);
 
-    comments.unshift(newComment);
-    commentContainer.innerHTML = "";
-    
-    let newComments = JSON.parse(JSON.stringify(comments));
+    if (valid && name.length > 3 && comment.length > 3) {
+        const newComment = {
+            name: name,
+            timestamp: moment(),
+            value: comment,
+        };
 
-    newComments.forEach((element, index, array) => {
-        if (index < array.length - 3) {
-            element.timestamp = getDynamicDate(element.timestamp);
-        }
-    });
+        comments.unshift(newComment);
 
-    renderElement(addComment, commentContainer, newComments);
+        // deep copy of the comments object
+        let newComments = JSON.parse(JSON.stringify(comments));
 
+        newComments.forEach((element, index, array) => {
+            if (index < array.length - 3) {
+                element.timestamp = getDynamicDate(element.timestamp);
+            }
+        });
+
+        errorMessage.innerText = "";
+        commentContainer.innerHTML = "";
+        renderElement(displayComment, commentContainer, newComments);
+    } else {
+        errorMessage.innerText = "Invalid Name and/or Comment";
+    }
+
+    event.preventDefault();
     event.target.reset();
 });
+
+renderElement(displayComment, commentContainer, comments);

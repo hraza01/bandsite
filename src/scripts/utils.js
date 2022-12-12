@@ -1,6 +1,6 @@
 "use strict";
 
-export function renderElement(callback, container, array) {
+function renderElement(callback, container, array) {
     try {
         if (array.length > 0) {
             array.forEach((item) => {
@@ -14,7 +14,7 @@ export function renderElement(callback, container, array) {
     }
 }
 
-export function addComment(comment) {
+function displayComment(comment) {
     // create elements needed for a comment
     const commentBox = document.createElement("article");
     const commentAvatar = document.createElement("div");
@@ -50,7 +50,7 @@ export function addComment(comment) {
     return commentBox;
 }
 
-export function addEvent(event) {
+function displayEvent(event) {
     // create elements needed for a show
     const eventBox = document.createElement("div");
     const eventDateLabel = document.createElement("p");
@@ -99,7 +99,7 @@ export function addEvent(event) {
     return eventBox;
 }
 
-export function addPlaceholder() {
+function addPlaceholder() {
     const placeholderContainer = document.createElement("div");
     const placeholder = document.createElement("p");
 
@@ -111,6 +111,14 @@ export function addPlaceholder() {
     return placeholderContainer;
 }
 
-export function getDynamicDate(date) {
+function getDynamicDate(date) {
     return moment(date).fromNow();
 }
+
+export {
+    renderElement,
+    displayComment,
+    displayEvent,
+    addPlaceholder,
+    getDynamicDate,
+};
