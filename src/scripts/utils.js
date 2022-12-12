@@ -7,7 +7,7 @@ function renderElement(callback, container, array) {
                 container.append(callback(item));
             });
         } else {
-            container.append(addPlaceholder());
+            container.append(displayPlaceholder());
         }
     } catch (error) {
         console.error(error.message);
@@ -89,7 +89,7 @@ function displayEvent(event) {
     return eventBox;
 }
 
-function addPlaceholder() {
+function displayPlaceholder() {
     const placeholderContainer = document.createElement("div");
     const placeholder = document.createElement("p");
 
@@ -109,6 +109,6 @@ export {
     renderElement,
     displayComment,
     displayEvent,
-    addPlaceholder,
+    displayPlaceholder,
     getDynamicDate,
 };
