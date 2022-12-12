@@ -3,6 +3,7 @@ import { displayComment, getDynamicDate, renderElement } from "./utils.js";
 import {
     commentContainer,
     commentValidator,
+    errorContainer,
     errorMessage,
     formElement,
     nameValidator,
@@ -50,10 +51,12 @@ formElement.addEventListener("submit", (event) => {
         });
 
         errorMessage.innerText = "";
+        errorContainer.style.display = "none";
         commentContainer.innerHTML = "";
         renderElement(displayComment, commentContainer, newComments);
     } else {
-        errorMessage.innerText = "Invalid Name and/or Comment";
+        errorContainer.style.display = "block";
+        errorMessage.innerText = "Error: Invalid Name and/or Comment";
     }
 
     event.preventDefault();
