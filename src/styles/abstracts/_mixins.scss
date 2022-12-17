@@ -1,15 +1,15 @@
 // -----------------------------------------------------------------------------
 // This file contains all application-wide Sass mixins.
 // -----------------------------------------------------------------------------
-@use "./variables" as v;
-@use "./functions" as f;
+@use "./variables";
+@use "./functions";
 
 /// Responsive breakpoint manager
 /// @access public
 /// @param {String} $breakpoint - Breakpoint
 /// @requires $breakpoints
 @mixin respond-to($breakpoint) {
-    $raw-query: map-get(v.$breakpoints, $breakpoint);
+    $raw-query: map-get(variables.$breakpoints, $breakpoint);
 
     @if $raw-query {
         $query: if(
@@ -47,15 +47,15 @@
 /// Default section wrapper for all pages except hero section
 @mixin section-wrapper() {
     margin: 0 auto;
-    max-width: map-get(v.$container-width, "small");
+    max-width: map-get(variables.$container-width, "small");
 
     @include respond-to("medium") {
-        max-width: map-get(v.$container-width, "medium");
+        max-width: map-get(variables.$container-width, "medium");
         padding: 1.6rem 0;
     }
 
     @include respond-to("large") {
-        max-width: map-get(v.$container-width, "large");
+        max-width: map-get(variables.$container-width, "large");
         padding: 3.2rem 0;
     }
 }
