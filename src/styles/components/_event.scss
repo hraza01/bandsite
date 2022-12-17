@@ -92,6 +92,7 @@
     }
 
     @include abstracts.respond-to("medium") {
+        padding: 1.8rem;
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
