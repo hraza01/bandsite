@@ -19,7 +19,7 @@ formElement.addEventListener("submit", (event) => {
     if (valid && name.length > 3 && comment.length > 3) {
         const newComment = {
             name: name,
-            timestamp: moment(),
+            timestamp: moment(), // imported via CDN (moment.js)
             value: comment,
         };
 
