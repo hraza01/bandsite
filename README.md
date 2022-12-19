@@ -2,7 +2,7 @@
 
 ### Completed as part of the BrainStation bootcamp.
 
-Application live at: https://band-site.decursed.com/
+[//]: # (Application live at: https://band-site.decursed.com/)
 
 Technology Stack:
 
@@ -11,4 +11,4 @@ Technology Stack:
 - sass
 - js
 
-##### Project site is deployed though firebase.
+[//]: # (##### Project site is deployed though firebase.)

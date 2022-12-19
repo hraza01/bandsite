@@ -4,39 +4,45 @@
 
 /// Regular font family
 /// @type List
-$text-font-stack: 'Avenir Next', 'Arial', sans-serif !default;
+$text-font-stack: "Avenir Next", "Arial", sans-serif !default;
 
 /// Brand colors
 /// @type Color
 $colors: (
-    'primary': (
-        'base': #323232,
-        'neutral': #afafaf,
-        'alternate': #ffffff,
+    "primary": (
+        "base": #323232,
+        "neutral": #afafaf,
+        "alternate": #ffffff,
     ),
-    'secondary': (
-        'base': #000000,
-        'neutral': #e1e1e1,
-        'alternate': #fafafa,
+    "secondary": (
+        "base": #000000,
+        "neutral": #e1e1e1,
+        "alternate": #fafafa,
+    ),
+    "conditional": (
+        "error": #d22d2d,
+        "error-bg": #db5757,
     ),
 ) !default;
 
 /// Container's maximum width
 /// @type Length
 $container-width: (
-    'small': calc(100% - 3.2rem), // 1.6 * 2 = 3.2
-    'medium': calc(100% - 7.2rem), // 3.6 * 2 = 7.2
-    'large': 102rem,
+    // 1.6 * 2 = 3.2
+    "mobile": calc(100% - 3.2rem),
+    // 3.6 * 2 = 7.2
+    "tablet": calc(100% - 7.2rem),
+    "desktop": 102rem
 ) !default;
 
 /// Breakpoints map
 /// @prop {String} keys - Keys are identifiers mapped to a given length
 /// @prop {Map} values - Values are actual breakpoints expressed in pixels
 $breakpoints: (
-    'medium': (
+    "tablet": (
         min-width: 48em,
     ),
-    'large': (
+    "desktop": (
         min-width: 80em,
     ),
     //'huge': (min-width: 112.5em)
@@ -44,13 +50,12 @@ $breakpoints: (
 
 /// Font weights map
 $font-weights: (
-    'regular': 400,
-    'semi-bold': 600,
-    'bold': 700,
+    "regular": 400,
+    "semi-bold": 600,
+    "bold": 700,
 ) !default;
 
 /// Relative or absolute URL where all assets are served from
 /// @type String
 /// @example scss - When using a CDN
-///   $base-url: 'https://cdn.example.com/assets/';
-$base-url: '../assets/' !default;
+$base-url: "../assets/" !default;

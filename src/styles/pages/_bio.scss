@@ -1,0 +1,223 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+@use "../abstracts";
+@use "../base";
+@use "../components";
+@use "../layout";
+
+.bioHero {
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(
+            rgba(50, 50, 50, 0.5),
+            rgba(50, 50, 50, 0.5)
+        ),
+        abstracts.image("hero-bio.jpg");
+
+    &__wrapper {
+        max-width: map-get(abstracts.$container-width, "mobile");
+        margin: 0 auto;
+        height: 20rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        @include abstracts.respond-to("tablet") {
+            height: 40rem;
+            padding: 1.6rem 0;
+            max-width: map-get(abstracts.$container-width, "tablet");
+        }
+
+        @include abstracts.respond-to("desktop") {
+            max-width: map-get(abstracts.$container-width, "desktop");
+            height: 64rem;
+            padding: 3.2rem 0;
+        }
+    }
+
+    &__heading {
+        color: abstracts.color("primary", "alternate");
+    }
+}
+
+.about {
+    &__wrapper {
+        @include abstracts.section-wrapper();
+    }
+
+    &__heading {
+        @include abstracts.section-heading();
+    }
+
+    &__img-container {
+        margin-bottom: 1.6rem;
+
+        @include abstracts.respond-to("tablet") {
+            width: 85%;
+            margin: 0 auto 3.2rem;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+
+    &__quote {
+        font-weight: map-get(abstracts.$font-weights, "semi-bold");
+
+        @include abstracts.respond-to("tablet") {
+            width: 85%;
+            padding-bottom: 1.6rem;
+            margin: 0 auto;
+            font-size: 2.4rem;
+            line-height: 3.2rem;
+        }
+
+        @include abstracts.respond-to("desktop") {
+            max-width: 70%;
+            margin-left: 7.8rem;
+        }
+    }
+
+    &__author {
+        margin-bottom: 1.6rem;
+        font-weight: map-get(abstracts.$font-weights, "semi-bold");
+
+        @include abstracts.respond-to("tablet") {
+            width: 85%;
+            margin: 0 auto 1.6rem;
+            font-size: 1.8rem;
+        }
+    }
+
+    &__subheading {
+        @include abstracts.respond-to("tablet") {
+            width: 85%;
+            margin: 4rem auto 1.6rem;
+        }
+    }
+
+    &__text-container {
+        @include abstracts.respond-to("tablet") {
+            width: 85%;
+            margin: 0 auto;
+            display: flex;
+            gap: 3.2rem;
+        }
+    }
+
+    &__text {
+        margin-bottom: 1.6rem;
+    }
+}
+
+.gallery {
+    background-color: abstracts.color("secondary", "alternate");
+
+    &__wrapper {
+        @include abstracts.section-wrapper();
+    }
+
+    &__heading {
+        @include abstracts.section-heading();
+    }
+
+    &__img-container {
+        @include abstracts.flex-center(column);
+        gap: 1.6rem;
+
+        @include abstracts.respond-to("tablet") {
+            @include abstracts.grid(repeat(3, 1fr), repeat(3, 1fr));
+        }
+
+        @include abstracts.respond-to("desktop") {
+            margin: 0 auto;
+            padding: 3.2rem 0;
+        }
+    }
+
+    &__img {
+        transition: all 0.3s;
+        filter: grayscale(100%);
+
+        &:hover {
+            filter: none;
+        }
+    }
+}
+
+.cta {
+    &__wrapper {
+        @include abstracts.section-wrapper();
+    }
+
+    &__heading {
+        @include abstracts.section-heading();
+    }
+
+    &__error-container {
+        display: none;
+        margin: 0 auto;
+        padding: 0.8rem 1.6rem;
+        border: 1px solid abstracts.color("conditional", "error");
+        border-radius: 5px;
+        background-color: abstracts.color("conditional", "error-bg");
+
+        @include abstracts.respond-to("tablet") {
+            padding: 0.8rem 2.4rem;
+            max-width: 58rem;
+        }
+
+        @include abstracts.respond-to("desktop") {
+            max-width: 50rem;
+        }
+    }
+
+    &__error-message {
+        color: abstracts.color("secondary", "alternate");
+    }
+
+    &__form-container {
+        @include abstracts.flex-center();
+        align-items: flex-start;
+        gap: 1.6rem;
+        margin: 1.6rem auto;
+
+        @include abstracts.respond-to("tablet") {
+            margin: 0 auto;
+            padding: 1.6rem 0;
+            max-width: 58rem;
+        }
+
+        @include abstracts.respond-to("desktop") {
+            max-width: 50rem;
+        }
+    }
+
+    &__form {
+        @include components.base-form();
+    }
+
+    &__comment-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.6rem;
+
+        @include abstracts.respond-to("tablet") {
+            margin: 0 auto;
+            padding: 1.6rem 0;
+            max-width: 58rem;
+        }
+
+        @include abstracts.respond-to("desktop") {
+            max-width: 50rem;
+            padding: 3.2rem 0;
+        }
+    }
+
+    &__comment {
+        @include components.comment();
+    }
+}

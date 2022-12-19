@@ -1,26 +1,25 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
-@use '../abstracts' as a;
-@use '../base' as b;
+@use "../abstracts";
+@use "../base";
 
 .header {
-    background-color: a.color('primary', 'base');
+    background-color: abstracts.color("primary", "base");
     min-height: 7.7rem;
 
-    @include a.respond-to('medium') {
+    @include abstracts.respond-to("tablet") {
         display: flex;
         justify-content: flex-start;
-        //padding: 0 1.6rem;
     }
 
-    @include a.respond-to('large') {
+    @include abstracts.respond-to("desktop") {
         padding: 0 3.2rem;
     }
 }
 
 .nav {
-    @include a.flex-center(column);
+    @include abstracts.flex-center(column);
     width: 100%;
     padding-top: 1.6rem;
 
@@ -31,8 +30,8 @@
         justify-content: space-between;
         align-items: center;
 
-        @include a.respond-to('medium') {
-            max-width: map-get(a.$container-width, 'medium');
+        @include abstracts.respond-to("tablet") {
+            max-width: map-get(abstracts.$container-width, "tablet");
             padding-top: 0;
             display: flex;
             justify-content: flex-start;
@@ -41,7 +40,7 @@
     }
 
     &__item {
-        @include a.flex-center();
+        @include abstracts.flex-center();
         width: 100%;
         margin: 0 auto;
         padding: 0.8rem 4.8rem;
@@ -50,10 +49,10 @@
 
         &:hover,
         &--active {
-            border-bottom: 2px solid a.color('primary', 'alternate');
+            border-bottom: 2px solid abstracts.color("primary", "alternate");
         }
 
-        @include a.respond-to('medium') {
+        @include abstracts.respond-to("tablet") {
             width: fit-content;
             margin: 0;
             padding: 2.6rem 0;
@@ -64,24 +63,29 @@
     &__link {
         text-decoration: none;
         letter-spacing: 0.025rem;
-        color: a.color('primary', 'neutral');
+        color: abstracts.color("primary", "neutral");
 
-        &--active {
-            color: a.color('primary', 'alternate');
+        &:hover {
+            color: abstracts.color("secondary", "neutral");
+        }
+
+        &--active,
+        &--active:hover {
+            color: abstracts.color("primary", "alternate");
         }
     }
 
-    @include a.respond-to('medium') {
+    @include abstracts.respond-to("tablet") {
         flex-direction: row;
-        max-width: map-get(a.$container-width, 'medium');
+        max-width: map-get(abstracts.$container-width, "tablet");
         min-height: 100%;
         margin: auto;
         padding: 0;
         gap: 5.6rem;
     }
 
-    @include a.respond-to('large') {
-        max-width: map-get(a.$container-width, 'large');
+    @include abstracts.respond-to("desktop") {
+        max-width: map-get(abstracts.$container-width, "desktop");
         margin: 0 auto;
     }
 }

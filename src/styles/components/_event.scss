@@ -1,0 +1,101 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the event component.
+// -----------------------------------------------------------------------------
+@use "../abstracts";
+@use "../base";
+@use "./label";
+
+.shows__event {
+    margin: 0 -1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    padding: 1.6rem;
+    border-bottom: 1px solid abstracts.color("secondary", "neutral");
+    transition: 0.13s;
+
+    // below rule sets are not modifiers in BEM,
+    // they only take advantage of nesting in SASS.
+    &-label {
+        @extend .label;
+
+        margin-bottom: -1.2rem;
+
+        &-container {
+            display: none;
+
+            @include abstracts.respond-to("tablet") {
+                // 100% minus button width (4th element)
+                width: calc(100% - 21.4rem);
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                margin-right: auto;
+                gap: 3.2rem;
+
+                @include abstracts.respond-to("desktop") {
+                    padding-top: 6rem;
+                }
+            }
+        }
+
+        @include abstracts.respond-to("tablet") {
+            display: none;
+        }
+    }
+
+    &-title {
+        @extend .label;
+
+        @include abstracts.respond-to("tablet") {
+            width: 14rem;
+            margin-right: auto;
+
+            // venue
+            &:nth-child(2) {
+                padding-left: 0.8rem;
+                margin: 0 auto;
+            }
+
+            // location
+            &:last-child {
+                padding-left: 1.2rem;
+            }
+        }
+    }
+
+    &-date,
+    &-venue,
+    &-location {
+        @include abstracts.respond-to("tablet") {
+            width: 14rem;
+            margin-left: auto;
+        }
+    }
+
+    &-date {
+        @include abstracts.respond-to("tablet") {
+            font-weight: map-get(abstracts.$font-weights, "semi-bold");
+            margin-left: 0;
+            margin-right: auto;
+        }
+    }
+
+    &:hover {
+        background-color: abstracts.color("secondary", "alternate");
+    }
+
+    // modifiers
+    &--selected,
+    &--selected:hover {
+        background-color: abstracts.color("secondary", "neutral");
+    }
+
+    @include abstracts.respond-to("tablet") {
+        padding: 1.8rem;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 3.2rem;
+    }
+}

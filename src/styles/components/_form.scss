@@ -1,0 +1,48 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the form component.
+// -----------------------------------------------------------------------------
+@use "../abstracts";
+@use "../base";
+
+@mixin base-form() {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    & *::placeholder {
+        color: abstracts.color("primary", "base");
+    }
+
+    & label {
+        color: abstracts.color("primary", "neutral");
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 0.4rem;
+    }
+
+    & input,
+    & textarea {
+        color: abstracts.color("primary", "base");
+        outline: none;
+        border: 1px solid abstracts.color("secondary", "neutral");
+        background-color: abstracts.color("secondary", "alternate");
+        border-radius: 4px;
+        padding: 1.2rem;
+        width: 100%;
+        margin-bottom: 2.4rem;
+        resize: none;
+        transition: 0.33s;
+
+        &:focus:invalid {
+            border-color: abstracts.color("conditional", "error");
+        }
+
+        &:focus:valid {
+            border-color: abstracts.color("primary", "base");
+        }
+    }
+}
