@@ -24,7 +24,7 @@
         &-container {
             display: none;
 
-            @include abstracts.respond-to("medium") {
+            @include abstracts.respond-to("tablet") {
                 // 100% minus button width (4th element)
                 width: calc(100% - 21.4rem);
                 display: flex;
@@ -33,13 +33,13 @@
                 margin-right: auto;
                 gap: 3.2rem;
 
-                @include abstracts.respond-to("large") {
+                @include abstracts.respond-to("desktop") {
                     padding-top: 6rem;
                 }
             }
         }
 
-        @include abstracts.respond-to("medium") {
+        @include abstracts.respond-to("tablet") {
             display: none;
         }
     }
@@ -47,7 +47,7 @@
     &-title {
         @extend .label;
 
-        @include abstracts.respond-to("medium") {
+        @include abstracts.respond-to("tablet") {
             width: 14rem;
             margin-right: auto;
 
@@ -67,14 +67,14 @@
     &-date,
     &-venue,
     &-location {
-        @include abstracts.respond-to("medium") {
+        @include abstracts.respond-to("tablet") {
             width: 14rem;
             margin-left: auto;
         }
     }
 
     &-date {
-        @include abstracts.respond-to("medium") {
+        @include abstracts.respond-to("tablet") {
             font-weight: map-get(abstracts.$font-weights, "semi-bold");
             margin-left: 0;
             margin-right: auto;
@@ -91,7 +91,7 @@
         background-color: abstracts.color("secondary", "neutral");
     }
 
-    @include abstracts.respond-to("medium") {
+    @include abstracts.respond-to("tablet") {
         padding: 1.8rem;
         flex-direction: row;
         align-items: center;

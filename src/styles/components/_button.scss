@@ -1,8 +1,8 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the button component.
 // -----------------------------------------------------------------------------
-@use '../abstracts';
-@use '../base';
+@use "../abstracts";
+@use "../base";
 
 .btn {
     display: inline-block;
@@ -12,16 +12,16 @@
     text-transform: uppercase;
     letter-spacing: 0.05rem;
     font-size: 1.6rem;
-    color: abstracts.color('primary', 'alternate');
+    color: abstracts.color("primary", "alternate");
     border: none;
-    background-color: abstracts.color('primary', 'base');
+    background-color: abstracts.color("primary", "base");
     transition: all 0.33s;
 
     &:hover {
-        background-color: abstracts.color('secondary', 'base');
+        background-color: abstracts.color("secondary", "base");
     }
 
-    @include abstracts.respond-to('medium') {
+    @include abstracts.respond-to("tablet") {
         width: fit-content;
         min-width: 15rem;
         padding: 0 3.2rem;
@@ -32,7 +32,7 @@
 .shows__btn {
     @extend .btn;
 
-    @include abstracts.respond-to('medium') {
+    @include abstracts.respond-to("tablet") {
         margin-left: auto;
     }
 }

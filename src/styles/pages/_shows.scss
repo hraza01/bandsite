@@ -16,7 +16,7 @@
         abstracts.image("hero-shows.jpg");
 
     &__wrapper {
-        max-width: map-get(abstracts.$container-width, "small");
+        max-width: map-get(abstracts.$container-width, "mobile");
         margin: 0 auto;
         display: flex;
         align-items: flex-start;
@@ -26,15 +26,15 @@
         padding: 3.2rem 0;
         height: 32rem;
 
-        @include abstracts.respond-to("medium") {
+        @include abstracts.respond-to("tablet") {
             gap: 3.2rem;
             height: 40rem;
             padding: 1.6rem 0;
-            max-width: map-get(abstracts.$container-width, "medium");
+            max-width: map-get(abstracts.$container-width, "tablet");
         }
 
-        @include abstracts.respond-to("large") {
-            max-width: map-get(abstracts.$container-width, "large");
+        @include abstracts.respond-to("desktop") {
+            max-width: map-get(abstracts.$container-width, "desktop");
             height: 64rem;
             padding: 3.2rem 0;
             position: relative;
@@ -49,11 +49,11 @@
         max-width: 24rem;
         color: abstracts.color("primary", "alternate");
 
-        @include abstracts.respond-to("medium") {
+        @include abstracts.respond-to("tablet") {
             max-width: 56rem;
         }
 
-        @include abstracts.respond-to("large") {
+        @include abstracts.respond-to("desktop") {
             max-width: 48rem;
         }
     }
@@ -64,11 +64,11 @@
         max-width: 50rem;
         height: 16.6rem;
 
-        @include abstracts.respond-to("medium") {
+        @include abstracts.respond-to("tablet") {
             width: 60%;
         }
 
-        @include abstracts.respond-to("large") {
+        @include abstracts.respond-to("desktop") {
             width: 45%;
             position: absolute;
             top: 42.5%;
@@ -76,7 +76,7 @@
         }
     }
 
-    @include abstracts.respond-to("medium") {
+    @include abstracts.respond-to("tablet") {
         padding: 6.4rem 0;
     }
 }
@@ -85,7 +85,7 @@
     &__wrapper {
         @include abstracts.section-wrapper();
 
-        @include abstracts.respond-to("large") {
+        @include abstracts.respond-to("desktop") {
             display: grid;
             grid-template-columns: 1fr 4fr;
             align-items: start;

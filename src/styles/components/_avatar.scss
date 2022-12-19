@@ -1,8 +1,8 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the avatar component.
 // -----------------------------------------------------------------------------
-@use '../abstracts';
-@use '../base';
+@use "../abstracts";
+@use "../base";
 
 .avatar {
     width: 3.6rem;
@@ -10,14 +10,13 @@
     object-fit: cover;
     border-radius: 50%;
 
-    @include abstracts.respond-to('medium') {
+    @include abstracts.respond-to("tablet") {
         width: 4.8rem;
         height: 4.8rem;
     }
 }
 
 .cta {
-
     &__profile-avatar {
         @extend .avatar;
 
@@ -28,9 +27,9 @@
         @extend .avatar;
 
         min-width: 3.6rem;
-        background-color: abstracts.color('primary', 'neutral');
+        background-color: abstracts.color("primary", "neutral");
 
-        @include abstracts.respond-to('medium') {
+        @include abstracts.respond-to("tablet") {
             min-width: 4.8rem;
         }
     }

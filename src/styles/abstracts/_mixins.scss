@@ -47,23 +47,24 @@
 /// Default section wrapper for all pages except hero section
 @mixin section-wrapper() {
     margin: 0 auto;
-    max-width: map-get(variables.$container-width, "small");
+    max-width: map-get(variables.$container-width, "mobile");
 
-    @include respond-to("medium") {
-        max-width: map-get(variables.$container-width, "medium");
+    @include respond-to("tablet") {
+        max-width: map-get(variables.$container-width, "tablet");
         padding: 1.6rem 0;
     }
 
-    @include respond-to("large") {
-        max-width: map-get(variables.$container-width, "large");
+    @include respond-to("desktop") {
+        max-width: map-get(variables.$container-width, "desktop");
         padding: 3.2rem 0;
     }
 }
+
 /// Default section heading for all sections except hero section
 @mixin section-heading() {
     padding: 2.4rem 0 1.6rem;
 
-    @include respond-to("medium") {
+    @include respond-to("tablet") {
         line-height: 3.2rem;
         padding: 4.8rem 0 3.6rem;
     }

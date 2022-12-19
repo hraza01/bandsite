@@ -1,11 +1,11 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the label component.
 // -----------------------------------------------------------------------------
-@use '../abstracts';
-@use '../base';
+@use "../abstracts";
+@use "../base";
 
 .label {
-    color: abstracts.color('primary', 'neutral');
+    color: abstracts.color("primary", "neutral");
     font-weight: 600;
     text-transform: uppercase;
 }

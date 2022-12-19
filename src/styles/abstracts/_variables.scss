@@ -28,21 +28,21 @@ $colors: (
 /// Container's maximum width
 /// @type Length
 $container-width: (
-    "small": calc(100% - 3.2rem),
     // 1.6 * 2 = 3.2
-    "medium": calc(100% - 7.2rem),
+    "mobile": calc(100% - 3.2rem),
     // 3.6 * 2 = 7.2
-    "large": 102rem,
+    "tablet": calc(100% - 7.2rem),
+    "desktop": 102rem
 ) !default;
 
 /// Breakpoints map
 /// @prop {String} keys - Keys are identifiers mapped to a given length
 /// @prop {Map} values - Values are actual breakpoints expressed in pixels
 $breakpoints: (
-    "medium": (
+    "tablet": (
         min-width: 48em,
     ),
-    "large": (
+    "desktop": (
         min-width: 80em,
     ),
     //'huge': (min-width: 112.5em)

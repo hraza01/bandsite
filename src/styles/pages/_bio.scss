@@ -16,21 +16,21 @@
         abstracts.image("hero-bio.jpg");
 
     &__wrapper {
-        max-width: map-get(abstracts.$container-width, "small");
+        max-width: map-get(abstracts.$container-width, "mobile");
         margin: 0 auto;
         height: 20rem;
         display: flex;
         align-items: center;
         justify-content: flex-start;
 
-        @include abstracts.respond-to("medium") {
+        @include abstracts.respond-to("tablet") {
             height: 40rem;
             padding: 1.6rem 0;
-            max-width: map-get(abstracts.$container-width, "medium");
+            max-width: map-get(abstracts.$container-width, "tablet");
         }
 
-        @include abstracts.respond-to("large") {
-            max-width: map-get(abstracts.$container-width, "large");
+        @include abstracts.respond-to("desktop") {
+            max-width: map-get(abstracts.$container-width, "desktop");
             height: 64rem;
             padding: 3.2rem 0;
         }
@@ -53,7 +53,7 @@
     &__img-container {
         margin-bottom: 1.6rem;
 
-        @include abstracts.respond-to("medium") {
+        @include abstracts.respond-to("tablet") {
             width: 85%;
             margin: 0 auto 3.2rem;
         }
@@ -67,7 +67,7 @@
     &__quote {
         font-weight: map-get(abstracts.$font-weights, "semi-bold");
 
-        @include abstracts.respond-to("medium") {
+        @include abstracts.respond-to("tablet") {
             width: 85%;
             padding-bottom: 1.6rem;
             margin: 0 auto;
@@ -75,7 +75,7 @@
             line-height: 3.2rem;
         }
 
-        @include abstracts.respond-to("large") {
+        @include abstracts.respond-to("desktop") {
             max-width: 70%;
             margin-left: 7.8rem;
         }
@@ -85,7 +85,7 @@
         margin-bottom: 1.6rem;
         font-weight: map-get(abstracts.$font-weights, "semi-bold");
 
-        @include abstracts.respond-to("medium") {
+        @include abstracts.respond-to("tablet") {
             width: 85%;
             margin: 0 auto 1.6rem;
             font-size: 1.8rem;
@@ -93,14 +93,14 @@
     }
 
     &__subheading {
-        @include abstracts.respond-to("medium") {
+        @include abstracts.respond-to("tablet") {
             width: 85%;
             margin: 4rem auto 1.6rem;
         }
     }
 
     &__text-container {
-        @include abstracts.respond-to("medium") {
+        @include abstracts.respond-to("tablet") {
             width: 85%;
             margin: 0 auto;
             display: flex;
@@ -128,11 +128,11 @@
         @include abstracts.flex-center(column);
         gap: 1.6rem;
 
-        @include abstracts.respond-to("medium") {
+        @include abstracts.respond-to("tablet") {
             @include abstracts.grid(repeat(3, 1fr), repeat(3, 1fr));
         }
 
-        @include abstracts.respond-to("large") {
+        @include abstracts.respond-to("desktop") {
             margin: 0 auto;
             padding: 3.2rem 0;
         }
@@ -165,12 +165,12 @@
         border-radius: 5px;
         background-color: abstracts.color("conditional", "error-bg");
 
-        @include abstracts.respond-to("medium") {
+        @include abstracts.respond-to("tablet") {
             padding: 0.8rem 2.4rem;
             max-width: 58rem;
         }
 
-        @include abstracts.respond-to("large") {
+        @include abstracts.respond-to("desktop") {
             max-width: 50rem;
         }
     }
@@ -185,13 +185,13 @@
         gap: 1.6rem;
         margin: 1.6rem auto;
 
-        @include abstracts.respond-to("medium") {
+        @include abstracts.respond-to("tablet") {
             margin: 0 auto;
             padding: 1.6rem 0;
             max-width: 58rem;
         }
 
-        @include abstracts.respond-to("large") {
+        @include abstracts.respond-to("desktop") {
             max-width: 50rem;
         }
     }
@@ -205,13 +205,13 @@
         flex-direction: column;
         margin-bottom: 1.6rem;
 
-        @include abstracts.respond-to("medium") {
+        @include abstracts.respond-to("tablet") {
             margin: 0 auto;
             padding: 1.6rem 0;
             max-width: 58rem;
         }
 
-        @include abstracts.respond-to("large") {
+        @include abstracts.respond-to("desktop") {
             max-width: 50rem;
             padding: 3.2rem 0;
         }
