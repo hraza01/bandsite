@@ -36,3 +36,33 @@
         margin-left: auto;
     }
 }
+
+.cta__comment-interactivity {
+    display: flex;
+    justify-self: flex-end;
+    gap: 1.2rem;
+    padding: 0.4rem;
+}
+
+.cta__comment-like-count {
+    margin-top: 0.8rem;
+}
+
+.cta__comment-like,
+.cta__comment-delete {
+    color: abstracts.color("primary", "base");
+    cursor: pointer;
+    border: none;
+    background: none;
+    width: 2.4rem;
+    height: 2.4rem;
+    transition: all 0.3s;
+}
+
+.cta__comment-like:hover {
+    color: abstracts.color("secondary", "base");
+}
+
+.cta__comment-delete:hover {
+    color: abstracts.color("conditional", "error");
+}
