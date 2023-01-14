@@ -1,4 +1,5 @@
 "use strict";
+import { makeRequest } from "./requests.js";
 import { displayComment, displayError } from "./services.js";
 import { formatComments, renderElement } from "./utils.js";
 import {
@@ -8,7 +9,6 @@ import {
     formElement,
     nameValidator,
 } from "./constants.js";
-import { makeRequest } from "./requests.js";
 
 const comments = await makeRequest("comments");
 const sortedComments = formatComments(comments);
