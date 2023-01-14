@@ -32,7 +32,6 @@ function newCommentHandler(event) {
         const postComment = makeRequest("comments", "POST", json);
 
         postComment
-            // wait for the comment to be sent to the server
             .then((res) => {
                 comments.unshift(res);
                 const sortedComments = formatComments(comments);
