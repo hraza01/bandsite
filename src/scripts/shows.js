@@ -1,10 +1,17 @@
 "use strict";
-import { displayEvent } from "./services.js";
+import { formatShows, renderElement } from "./utils.js";
 import { showsContainer } from "./constants.js";
-import { renderElement } from "./utils.js";
-import { shows } from "./data.js";
+import { displayEvent } from "./services.js";
+import { makeRequest } from "./requests";
 
 let clickedShow = null;
+const shows = await makeRequest("showdates");
+const sortedShows = formatShows(shows);
+renderElement(displayEvent, showsContainer, sortedShows);
+
+document.querySelectorAll(".shows__event").forEach((show) => {
+    show.addEventListener("click", toggleOpen);
+});
 
 function toggleOpen({ target }) {
     const show = target.closest(".shows__event");
@@ -13,9 +20,3 @@ function toggleOpen({ target }) {
     show.classList.add("shows__event--selected");
     clickedShow = show;
 }
-
-renderElement(displayEvent, showsContainer, shows);
-
-document.querySelectorAll(".shows__event").forEach((show) => {
-    show.addEventListener("click", toggleOpen);
-});
