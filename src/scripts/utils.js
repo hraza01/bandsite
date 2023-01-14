@@ -22,6 +22,7 @@ function displayPlaceholder() {
 function renderElement(callback, container, array) {
     try {
         if (array.length > 0) {
+            container.innerHTML = "";
             array.forEach((item) => {
                 container.append(callback(item));
             });
@@ -33,8 +34,44 @@ function renderElement(callback, container, array) {
     }
 }
 
-function getDynamicDate(date) {
-    return moment(date).fromNow();
+function formatComments(comments) {
+    return (
+        comments
+            .sort((a, b) => b.timestamp - a.timestamp)
+            // dynamic timestamp for new comments
+            .map((comment, index, array) => {
+                if (index < array.length - 3) {
+                    return {
+                        ...comment,
+                        timestamp: moment(comment.timestamp).fromNow(),
+                    };
+                } else {
+                    return {
+                        ...comment,
+                        timestamp: moment(comment.timestamp).format(
+                            "MM/DD/YYYY"
+                        ),
+                    };
+                }
+            })
+    );
 }
 
-export { displayPlaceholder, createHTMLElement, renderElement, getDynamicDate };
+function formatShows(shows) {
+    return shows
+        .sort((a, b) => a.date - b.date)
+        .map((show) => {
+            return {
+                ...show,
+                date: moment(show.date).format("ddd MMM DD YYYY"),
+            };
+        });
+}
+
+export {
+    displayPlaceholder,
+    createHTMLElement,
+    renderElement,
+    formatComments,
+    formatShows,
+};
