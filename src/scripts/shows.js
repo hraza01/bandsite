@@ -2,7 +2,7 @@
 import { formatShows, renderElement } from "./utils.js";
 import { showsContainer } from "./constants.js";
 import { displayEvent } from "./services.js";
-import { makeRequest } from "./requests";
+import { makeRequest } from "./requests.js";
 
 let clickedShow = null;
 const shows = await makeRequest("showdates");

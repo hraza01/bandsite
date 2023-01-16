@@ -12,6 +12,7 @@ function commentLikeHandler(event) {
     const likedComment = event.target.closest(".cta__comment-description");
     const likedCount = likedComment.querySelector(".cta__comment-like-count");
     const commentId = likedComment.dataset.commentId;
+
     makeRequest(`comments/${commentId}/like`, "PUT", null, null)
         .then((res) => {
             likedCount.innerText = `${res.likes} Likes`;
@@ -22,6 +23,7 @@ function commentLikeHandler(event) {
 function commentDeleteHandler(event) {
     const clickedComment = event.target.closest(".cta__comment-description");
     const commentId = clickedComment.dataset.commentId;
+
     makeRequest(`comments/${commentId}`, "DELETE", null, null)
         .then(() => {
             clickedComment.parentElement.remove();
