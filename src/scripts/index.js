@@ -1,20 +1,15 @@
 "use strict";
 import { makeRequest } from "./requests.js";
 import { displayComment, displayError } from "./services.js";
-import { formatComments, renderElement } from "./utils.js";
+import { formatComments, gtag, renderElement } from "./utils.js";
 import {
     commentContainer,
     commentValidator,
     errorContainer,
     formElement,
+    measurementId,
     nameValidator,
 } from "./constants.js";
-
-const comments = await makeRequest("comments");
-const sortedComments = formatComments(comments);
-renderElement(displayComment, commentContainer, sortedComments);
-
-formElement.addEventListener("submit", newCommentHandler);
 
 function newCommentHandler(event) {
     let name = event.target.name.value;
@@ -44,3 +39,13 @@ function newCommentHandler(event) {
     event.preventDefault();
     event.target.reset();
 }
+
+// Google Analytics Config - Please Ignore
+gtag("js", new Date());
+gtag("config", measurementId);
+
+const comments = await makeRequest("comments");
+const sortedComments = formatComments(comments);
+renderElement(displayComment, commentContainer, sortedComments);
+
+formElement.addEventListener("submit", newCommentHandler);
