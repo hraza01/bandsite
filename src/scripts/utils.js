@@ -68,10 +68,16 @@ function formatShows(shows) {
         });
 }
 
+// Google Analytics Tag Handle
+function gtag() {
+    dataLayer.push(arguments);
+}
+
 export {
     displayPlaceholder,
     createHTMLElement,
     renderElement,
     formatComments,
     formatShows,
+    gtag,
 };
