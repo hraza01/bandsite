@@ -36,4 +36,34 @@
         padding-top: 0.8rem;
         word-break: break-word;
     }
+
+    &-interactivity {
+        display: flex;
+        justify-self: flex-end;
+        gap: 1.2rem;
+        padding: 0.4rem;
+    }
+
+    &-like-count {
+        margin-top: 0.8rem;
+    }
+
+    &-like,
+    &-delete {
+        color: abstracts.color("primary", "base");
+        cursor: pointer;
+        border: none;
+        background: none;
+        width: 2.4rem;
+        height: 2.4rem;
+        transition: all 0.3s;
+    }
+
+    &-like:hover {
+        color: abstracts.color("secondary", "base");
+    }
+
+    &-delete:hover {
+        color: abstracts.color("conditional", "error");
+    }
 }
