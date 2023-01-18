@@ -16,6 +16,7 @@
     border: none;
     background-color: abstracts.color("primary", "base");
     transition: all 0.33s;
+    cursor: pointer;
 
     &:hover {
         background-color: abstracts.color("secondary", "base");
