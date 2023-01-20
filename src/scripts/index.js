@@ -1,50 +1,54 @@
 "use strict";
-import { displayComment } from "./services.js";
-import { getDynamicDate, renderElement } from "./utils.js";
-import { comments } from "./data.js";
+import { makeRequest } from "./requests.js";
+import { displayComment, displayError } from "./services.js";
+import { formatComments, gtag, renderElement } from "./utils.js";
 import {
     commentContainer,
     commentValidator,
     errorContainer,
-    errorMessage,
     formElement,
+    measurementId,
     nameValidator,
 } from "./constants.js";
 
-formElement.addEventListener("submit", (event) => {
-    let name = event.target.name.value;
-    let comment = event.target.comment.value;
-    let valid = nameValidator.test(name) && commentValidator.test(comment);
+function newCommentHandler(event) {
+    const name = event.target.name.value;
+    const comment = event.target.comment.value;
+    const valid =
+        nameValidator.test(name) &&
+        commentValidator.test(comment) &&
+        name.length >= 3 &&
+        comment.length >= 3;
 
-    if (valid && name.length > 3 && comment.length > 3) {
-        const newComment = {
-            name: name,
-            timestamp: moment(), // imported via CDN (moment.js)
-            value: comment,
-        };
-
-        comments.unshift(newComment);
-
-        // deep copy of the comments object
-        let newComments = JSON.parse(JSON.stringify(comments));
-
-        newComments.forEach((element, index, array) => {
-            if (index < array.length - 3) {
-                element.timestamp = getDynamicDate(element.timestamp);
-            }
-        });
-
-        errorMessage.innerText = "";
-        errorContainer.style.display = "none";
-        commentContainer.innerHTML = "";
-        renderElement(displayComment, commentContainer, newComments);
+    if (!valid) {
+        displayError();
     } else {
-        errorContainer.style.display = "block";
-        errorMessage.innerText = "Error: Invalid Name and/or Comment";
+        const json = JSON.stringify({ name, comment });
+        const postComment = makeRequest("comments", "POST", json);
+
+        postComment
+            .then((res) => {
+                errorContainer.style.display = "none";
+                res.timestamp = moment(res.timestamp).fromNow();
+                const newComment = displayComment(res);
+
+                commentContainer.querySelector(".placeholder")?.remove();
+                commentContainer.prepend(newComment);
+            })
+            .catch((err) => console.error(err.message));
     }
 
     event.preventDefault();
     event.target.reset();
-});
+}
 
-renderElement(displayComment, commentContainer, comments);
+// Google Analytics Config - Please Ignore
+window.dataLayer = window.dataLayer || [];
+gtag("js", new Date());
+gtag("config", measurementId);
+
+const comments = await makeRequest("comments");
+const sortedComments = formatComments(comments);
+renderElement(displayComment, commentContainer, sortedComments);
+
+formElement.addEventListener("submit", newCommentHandler);

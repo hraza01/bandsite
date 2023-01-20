@@ -6,6 +6,7 @@ const errorContainer = document.querySelector(".cta__error-container");
 const errorMessage = document.querySelector(".cta__error-message");
 const nameValidator = new RegExp(/^(?![\s.]+$)[a-zA-Z\s.]*$/);
 const commentValidator = new RegExp(/^(?![\s.]*$).{3,}$/);
+const measurementId = "G-VYY2QDYYNE";
 
 export {
     commentContainer,
@@ -15,4 +16,5 @@ export {
     commentValidator,
     errorContainer,
     errorMessage,
+    measurementId,
 };

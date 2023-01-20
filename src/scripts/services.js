@@ -1,5 +1,40 @@
 "use strict";
-import { createHTMLElement } from "./utils.js";
+import { createHTMLElement, displayPlaceholder } from "./utils.js";
+import { commentContainer, errorContainer, errorMessage } from "./constants.js";
+import { makeRequest } from "./requests.js";
+
+function displayError() {
+    errorContainer.style.display = "block";
+    errorMessage.innerText = "Error: Invalid Name and/or Comment";
+}
+
+function commentLikeHandler(event) {
+    const likedComment = event.target.closest(".cta__comment-description");
+    const likedCount = likedComment.querySelector(".cta__comment-like-count");
+    const commentId = likedComment.dataset.commentId;
+
+    makeRequest(`comments/${commentId}/like`, "PUT", null, null)
+        .then((res) => {
+            likedCount.innerText = `${res.likes} Likes`;
+        })
+        .catch((err) => console.error(err.message));
+}
+
+function commentDeleteHandler(event) {
+    const clickedComment = event.target.closest(".cta__comment-description");
+    const commentId = clickedComment.dataset.commentId;
+
+    makeRequest(`comments/${commentId}`, "DELETE", null, null)
+        .then(() => {
+            if (commentContainer.children.length > 1) {
+                clickedComment.parentElement.remove();
+            } else {
+                clickedComment.parentElement.remove();
+                commentContainer.append(displayPlaceholder());
+            }
+        })
+        .catch((err) => console.error(err.message));
+}
 
 function displayComment(comment) {
     // create elements needed for a comment
@@ -17,15 +52,45 @@ function displayComment(comment) {
     const commentValue = createHTMLElement(
         "p",
         "cta__comment-text",
-        comment.value
+        comment.comment
     );
     const commentDescription = createHTMLElement(
         "div",
         "cta__comment-description"
     );
-    const commentBox = createHTMLElement("div", "cta__comment");
 
-    commentDescription.append(commentName, commentTimestamp, commentValue);
+    const commentInteractivity = createHTMLElement(
+        "div",
+        "cta__comment-interactivity"
+    );
+
+    const commentLikeCount = createHTMLElement(
+        "p",
+        "cta__comment-like-count",
+        `${comment.likes} Likes`
+    );
+
+    const commentLikeBtn = createHTMLElement("a", "cta__comment-like");
+    commentLikeBtn.addEventListener("click", commentLikeHandler);
+    commentLikeBtn.innerHTML =
+        '<ion-icon class="cta__comment-like" name="thumbs-up-outline"></ion-icon>';
+
+    const commentDelBtn = createHTMLElement("a", "cta__comment-delete");
+    commentDelBtn.addEventListener("click", commentDeleteHandler);
+    commentDelBtn.innerHTML =
+        '<ion-icon class="cta__comment-delete" name="trash-outline"></ion-icon>';
+
+    const commentBox = createHTMLElement("div", "cta__comment");
+    commentDescription.dataset.commentId = comment.id;
+
+    commentInteractivity.append(commentLikeBtn, commentDelBtn);
+    commentDescription.append(
+        commentName,
+        commentTimestamp,
+        commentValue,
+        commentLikeCount,
+        commentInteractivity
+    );
     commentBox.append(commentAvatar, commentDescription);
 
     return commentBox;
@@ -48,7 +113,7 @@ function displayEvent(event) {
     const eventVenue = createHTMLElement(
         "p",
         "shows__event-venue",
-        event.venue
+        event.place
     );
     const eventLocation = createHTMLElement(
         "p",
@@ -71,4 +136,4 @@ function displayEvent(event) {
     return eventBox;
 }
 
-export { displayComment, displayEvent };
+export { displayComment, displayEvent, displayError };

@@ -1,10 +1,8 @@
 "use strict";
+import { formatShows, gtag, renderElement } from "./utils.js";
+import { measurementId, showsContainer } from "./constants.js";
+import { makeRequest } from "./requests.js";
 import { displayEvent } from "./services.js";
-import { showsContainer } from "./constants.js";
-import { renderElement } from "./utils.js";
-import { shows } from "./data.js";
-
-let clickedShow = null;
 
 function toggleOpen({ target }) {
     const show = target.closest(".shows__event");
@@ -14,7 +12,15 @@ function toggleOpen({ target }) {
     clickedShow = show;
 }
 
-renderElement(displayEvent, showsContainer, shows);
+// Google Analytics Config - Please Ignore
+window.dataLayer = window.dataLayer || [];
+gtag("js", new Date());
+gtag("config", measurementId);
+
+let clickedShow = null;
+const shows = await makeRequest("showdates");
+const sortedShows = formatShows(shows);
+renderElement(displayEvent, showsContainer, sortedShows);
 
 document.querySelectorAll(".shows__event").forEach((show) => {
     show.addEventListener("click", toggleOpen);
