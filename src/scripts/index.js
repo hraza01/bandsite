@@ -12,9 +12,9 @@ import {
 } from "./constants.js";
 
 function newCommentHandler(event) {
-    let name = event.target.name.value;
-    let comment = event.target.comment.value;
-    let valid =
+    const name = event.target.name.value;
+    const comment = event.target.comment.value;
+    const valid =
         nameValidator.test(name) &&
         commentValidator.test(comment) &&
         name.length >= 3 &&
@@ -28,10 +28,11 @@ function newCommentHandler(event) {
 
         postComment
             .then((res) => {
-                comments.unshift(res);
-                const sortedComments = formatComments(comments);
                 errorContainer.style.display = "none";
-                renderElement(displayComment, commentContainer, sortedComments);
+                res.timestamp = moment(res.timestamp).fromNow();
+                const newComment = displayComment(res);
+
+                commentContainer.prepend(newComment);
             })
             .catch((err) => console.error(err.message));
     }
