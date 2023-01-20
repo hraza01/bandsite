@@ -1,6 +1,6 @@
 "use strict";
-import { createHTMLElement } from "./utils.js";
-import { errorContainer, errorMessage } from "./constants.js";
+import { createHTMLElement, displayPlaceholder } from "./utils.js";
+import { commentContainer, errorContainer, errorMessage } from "./constants.js";
 import { makeRequest } from "./requests.js";
 
 function displayError() {
@@ -26,7 +26,12 @@ function commentDeleteHandler(event) {
 
     makeRequest(`comments/${commentId}`, "DELETE", null, null)
         .then(() => {
-            clickedComment.parentElement.remove();
+            if (commentContainer.children.length > 1) {
+                clickedComment.parentElement.remove();
+            } else {
+                clickedComment.parentElement.remove();
+                commentContainer.append(displayPlaceholder());
+            }
         })
         .catch((err) => console.error(err.message));
 }
