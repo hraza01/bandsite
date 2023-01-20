@@ -16,7 +16,9 @@ function displayPlaceholder() {
         "cta__comment-description"
     );
 
-    return placeholderContainer.append(placeholder);
+    placeholderContainer.append(placeholder);
+
+    return placeholderContainer;
 }
 
 function renderElement(callback, container, array) {
