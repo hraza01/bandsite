@@ -13,6 +13,7 @@ function toggleOpen({ target }) {
 }
 
 // Google Analytics Config - Please Ignore
+window.dataLayer = window.dataLayer || [];
 gtag("js", new Date());
 gtag("config", measurementId);
 

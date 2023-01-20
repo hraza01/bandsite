@@ -6,19 +6,7 @@ function createHTMLElement(element, className, text = null) {
 }
 
 function displayPlaceholder() {
-    const placeholder = createHTMLElement(
-        "p",
-        "shows__event-venue",
-        "No items yet"
-    );
-    const placeholderContainer = createHTMLElement(
-        "div",
-        "cta__comment-description"
-    );
-
-    placeholderContainer.append(placeholder);
-
-    return placeholderContainer;
+    return createHTMLElement("div", "placeholder", "engage in a discussion!");
 }
 
 function renderElement(callback, container, array) {

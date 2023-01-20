@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the placeholder component.
+// -----------------------------------------------------------------------------
+@use "../abstracts";
+@use "../base";
+
+.placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: abstracts.color("secondary", "neutral");
+    border-radius: 5px;
+    padding: 16rem 1rem;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: all 0.5s;
+
+    &:hover {
+        letter-spacing: 0.4rem;
+        font-weight: 600;
+    }
+}

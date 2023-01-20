@@ -32,6 +32,7 @@ function newCommentHandler(event) {
                 res.timestamp = moment(res.timestamp).fromNow();
                 const newComment = displayComment(res);
 
+                commentContainer.querySelector(".placeholder")?.remove();
                 commentContainer.prepend(newComment);
             })
             .catch((err) => console.error(err.message));
@@ -42,6 +43,7 @@ function newCommentHandler(event) {
 }
 
 // Google Analytics Config - Please Ignore
+window.dataLayer = window.dataLayer || [];
 gtag("js", new Date());
 gtag("config", measurementId);
 
